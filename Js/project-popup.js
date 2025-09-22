@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'img/JUST MUSIC/JUST MUSIC CATALOG.jpg',
                 'img/JUST MUSIC/JUST MUSIC PAGE.jpg',
             ],
-            desc: 'Una aplicación de streaming de música cuyo concepto es ofrecer un espacio tanto para usuarios como para músicos, donde puedan compartir y descubrir nueva música de manera sencilla y rápida.',
+            desc: 'Una aplicación de <b>streaming de música</b> cuyo concepto es ofrecer un espacio tanto para <b>usuarios</b> como para <b>músicos</b>, donde puedan <b>compartir</b> y <b>descubrir nueva música</b> de manera sencilla y rápida.',
             github: 'https://github.com/Juan-Exe/Proyecto-Just-Muisc'
         },
         {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'img/COMIC HOUSE/COMIC HOUSE responsive login.jpg',
                 'img/COMIC HOUSE/COMIC HOUSE responsive register.jpg',
             ],
-            desc: 'Una aplicación de streaming de cómics que permite a los usuarios leer sus cómics favoritos de manera sencilla y rápida. Hecho bajo HTML, PHP y CSS, Comic House permite buscar, leer y gestionar cómics de manera eficiente, utilizando una base de datos MySQL para gestionar los usuarios y los cómics disponibles.',
+            desc: 'Una aplicación de <b>streaming de cómics</b> que permite a los usuarios <b>leer</b> sus cómics favoritos de manera sencilla y rápida. Hecho bajo <b>HTML</b>, <b>PHP</b> y <b>CSS</b>, Comic House permite buscar, leer y gestionar cómics de manera eficiente, utilizando una base de datos <b>MySQL</b> para gestionar los usuarios y los cómics disponibles.',
             github: 'https://github.com/Juan-Exe/Comic-House'
         },
         {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'img/FRISBY TRIVIA/FRSIBY TRIVIA REGISTROO.png',
                 'img/FRISBY TRIVIA/FRISBY TRIVIA GAME.png',
             ],
-            desc: 'La Frisby Trivia es un proyecto de juego personal, es una aplicación de trivia que permite a los usuarios poner a prueba sus conocimientos sobre música, cine y más temas juveniles y de cultura pop. Hecho bajo HTML, NODE.JS y CSS, Frisby Trivia ofrece una experiencia de juego interactiva y entretenida dirigida a jugarse en obs studio para imitar una transmisión de quien quiere ser millonario.',
+            desc: 'La Frisby Trivia es un proyecyto de juego personal, es na aplicación de <b>trivia</b> que permite a los usuarios <b>poner a prueba</b> sus conocimientos sobre música, cine y más temas juveniles y de cultura pop. Hecho bajo <b>HTML</b>, <b>NODE.JS</b> y <b>CSS</b>, Frisby Trivia ofrece una experiencia de juego interactiva y entretenida dirijida a jugarse en obs studio para imitar una transmision de quien quiere ser millonario.',
             github: 'https://github.com/Juan-Exe/FRISBY-TRIVIA.git'
         }
     ];
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderPopup() {
         const project = projects[currentProject];
         popupTitle.textContent = project.title;
-        popupDesc.textContent = project.desc;
+        popupDesc.innerHTML = project.desc;
         popupGithub.href = project.github;
         sliderImages.innerHTML = '';
         project.images.forEach((img, i) => {
