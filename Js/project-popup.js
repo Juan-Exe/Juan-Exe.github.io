@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Agrega más rutas de imágenes si tienes
             ],
             desc: 'La Frisby Trivia es un proyecto de juego personal, es una aplicación de trivia que permite a los usuarios poner a prueba sus conocimientos sobre música, cine y más temas juveniles y de cultura pop. Hecho bajo HTML, NODE.JS y CSS, Frisby Trivia ofrece una experiencia de juego interactiva y entretenida dirigida a jugarse en obs studio para imitar una transmisión de quien quiere ser millonario.',
-            github: 'https://github.com/Juan-Exe/FRISBY-TRIVIA.git'
+            github: 'https://github.com/Juan-Exe/FRISBY-TRIVIA'
         }
     ];
 
