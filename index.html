@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="fade-in">
         <div class="header-content">
             <div class="header-title-line">
                 <span class="header-line-vertical"></span>
@@ -39,7 +39,7 @@
 
     <main>
 
-        <div class="abt-cont-flex">
+    <div class="abt-cont-flex fade-in">
             <div class="abt-cont-flex-con">
 
                 <div class="abt-cont-flex-con-img-cha">
@@ -89,7 +89,7 @@
             </div>
         </div>
 
-        <div class="skl-cont-flex">
+    <div class="skl-cont-flex fade-in">
             <div class="skl-cont-flex-con">
                 <h2>HABILIDADES.</h2>
                 <div class="skl-cont-flex-con-lng">
@@ -106,7 +106,7 @@
             </div>
         </div>
 
-        <div class="pro-cont-flex">
+    <div class="pro-cont-flex fade-in">
             <div class="pro-cont-flex-con">
                 <h2>PROYECTOS.</h2>
 
@@ -154,7 +154,7 @@
     </main>
 
     <footer>
-        <div class="cnt-cont-flex">
+    <div class="cnt-cont-flex fade-in">
             <div class="cnt-cont-flex-con">
                 <h2>CONTACTO.</h2>
                 <div class="cnt-cont-flex-con-inf">
@@ -167,5 +167,20 @@
 
     </footer>
     <script src="Js/project-popup.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new window.IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.18 });
+        fadeEls.forEach(el => observer.observe(el));
+    });
+    </script>
 </body>
 </html>
