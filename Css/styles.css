@@ -624,3 +624,259 @@ header label {
 
     }
 }
+
+@media (max-width: 768px) {
+
+    .img-line-circle,
+    .linea-horizontal-sobremi,
+    .linea-vertical-competencias,
+    .circle-competencias,
+    .header-line-vertical {
+        display: none;
+    }
+
+    body {
+        text-align: center;
+    }
+
+    h1, h2 {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    header {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .header-content {
+        align-items: center;
+    }
+
+    .header-title-line h1 {
+        padding-left: 0;
+        font-size: 2.2rem;
+    }
+
+    .abt-cont-flex {
+        margin-bottom: 50px;
+    }
+    
+    .abt-cont-flex-con {
+        flex-direction: column;
+        width: 90%;
+        border-width: 4px;
+    }
+
+    .abt-cont-flex-con-img-cha {
+        width: 100%;
+        padding: 20px 0 0 0;
+    }
+
+    .abt-cont-flex-con-img img {
+        width: 50%;
+        max-width: 180px;
+    }
+    
+    .abt-cont-flex-con-cha {
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    .abt-cont-flex-con-cha h2 {
+        margin-left: 0 !important;
+        font-size: 1.7rem;
+    }
+
+    .competencias-lista {
+        padding-left: 0;
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .competencias-lista ul {
+        padding-left: 0;
+        text-align: center;
+        width: auto;
+    }
+    
+    .competencias-lista li {
+        font-size: 1.1rem;
+    }
+
+    .abt-cont-flex-con-inf {
+        padding: 25px;
+        width: auto;
+    }
+
+    .sobre-mi-title-line {
+        justify-content: center;
+    }
+    
+    .abt-cont-flex-con-inf h2 {
+        font-size: 1.8rem;
+    }
+
+    .abt-cont-flex-con-inf p {
+        font-size: 1.1rem;
+        text-align: justify;
+    }
+
+    .skl-cont-flex, .pro-cont-flex, .cnt-cont-flex {
+        margin-bottom: 50px;
+    }
+
+    .skl-cont-flex-con, .pro-cont-flex-con, .cnt-cont-flex-con {
+        width: 88%;
+        padding: 20px;
+        border-width: 4px;
+    }
+
+    .skl-cont-flex-con-lng {
+        column-gap: 15px;
+        row-gap: 15px;
+    }
+
+    .lan-skl-cont-flex-con-lng {
+        width: 100px;
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .pro-cont-flex-con-cont {
+        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-rows: auto;
+        row-gap: 30px;
+    }
+    
+    .pro-cont-flex-con-cont-pry img {
+        width: 90%;
+    }
+
+    .cnt-cont-flex-con-inf {
+        flex-direction: column; 
+        gap: 15px;
+    }
+
+    .cnt-cont-flex-con-inf-boton {
+        width: 90%;
+        text-align: center;
+        padding: 12px;
+    }
+    
+    .project-popup-modal {
+        flex-direction: column;
+        width: 95vw;
+        max-height: 95vh;
+        padding: 20px;
+    }
+    .project-popup-slider {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .slider-images {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 400px) {
+    .header-title-line h1 {
+        font-size: 1.8rem;
+    }
+    
+    .abt-cont-flex-con-inf p, .competencias-lista li {
+        font-size: 1rem;
+    }
+    
+    .pro-cont-flex-con-cont-pry-par p {
+        font-size: 1rem;
+    }
+    
+    .cnt-cont-flex-con-inf-boton {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .project-popup-modal {
+        width: 95vw;
+        max-height: 90vh;
+        padding: 20px;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .project-popup-close {
+        top: 15px;
+        right: 15px;
+        font-size: 2.2rem;
+    }
+
+    .project-popup-slider {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+
+    .slider-arrow {
+        padding: 0;
+        border: none;
+        background: #1a716c;
+        color: white;
+        cursor: pointer;
+        transition: background 0.2s ease;
+        
+        width: 44px;        
+        height: 44px;       
+        font-size: 2rem;   
+        display: flex;
+        align-items: center;    
+        justify-content: center; 
+        flex-shrink: 0; 
+    }
+    
+    .slider-arrow:hover {
+        background: #155c53;
+    }
+    
+    .slider-images {
+        width: 100%; 
+        max-width: 300px;
+        height: auto;
+    }
+    
+    .project-popup-desc {
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .project-popup-desc h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .project-popup-desc p {
+        font-size: 1.1rem;
+        text-align: justify;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .project-popup-github {
+        display: block;
+        width: 80%;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+}
