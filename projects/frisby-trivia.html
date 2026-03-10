@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frisby Trivia — Juan Arrieta</title>
+    <link rel="stylesheet" href="../Css/styles.css?v=1.1">
+    <link rel="stylesheet" href="../Css/project-detail.css">
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Volver</a>
+
+    <main class="project-detail">
+        <header class="project-detail-header">
+            <h1 class="project-detail-title slide-up-blur">Frisby Trivia</h1>
+            <a href="https://github.com/Juan-Exe/FRISBY-TRIVIA.git" target="_blank" class="project-detail-github slide-up-blur" style="transition-delay:0.1s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                Ver en GitHub
+            </a>
+        </header>
+
+        <div class="project-detail-meta">
+            <div class="project-meta-item slide-up-blur" style="transition-delay:0.15s;">
+                <span class="meta-label">Año</span>
+                <span class="meta-value">2024</span>
+            </div>
+            <div class="project-meta-item slide-up-blur" style="transition-delay:0.25s;">
+                <span class="meta-label">Tecnologías</span>
+                <span class="meta-value">JavaScript, Node.js, HTML, CSS</span>
+            </div>
+            <div class="project-meta-item slide-up-blur" style="transition-delay:0.35s;">
+                <span class="meta-label">Descripción</span>
+                <p class="meta-value">Una aplicación de <b>trivia interactiva</b> que permite a los usuarios <b>poner a prueba</b> sus conocimientos sobre música, cine y más temas juveniles y de cultura pop. Hecho bajo <b>HTML</b>, <b>Node.js</b> y <b>CSS</b>, Frisby Trivia ofrece una experiencia de juego interactiva y entretenida dirigida a jugarse en <b>OBS Studio</b> para imitar una transmisión de quien quiere ser millonario.</p>
+            </div>
+        </div>
+
+        <div class="project-detail-gallery">
+            <img class="project-detail-img slide-up-blur" src="../img/FRISBY TRIVIA/FRISBY TRIVIA INICIO.png" alt="Frisby Trivia - Inicio" style="transition-delay:0.1s;">
+            <img class="project-detail-img slide-up-blur" src="../img/FRISBY TRIVIA/FRISBY TRIVIA SELECCION.png" alt="Frisby Trivia - Selección" style="transition-delay:0.2s;">
+            <img class="project-detail-img slide-up-blur" src="../img/FRISBY TRIVIA/FRSIBY TRIVIA GESTION.png" alt="Frisby Trivia - Gestión" style="transition-delay:0.3s;">
+            <img class="project-detail-img slide-up-blur" src="../img/FRISBY TRIVIA/FRSIBY TRIVIA REGISTROO.png" alt="Frisby Trivia - Registro" style="transition-delay:0.4s;">
+            <img class="project-detail-img slide-up-blur" src="../img/FRISBY TRIVIA/FRISBY TRIVIA GAME.png" alt="Frisby Trivia - Game" style="transition-delay:0.5s;">
+        </div>
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+                else entry.target.classList.remove('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.slide-up-blur').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

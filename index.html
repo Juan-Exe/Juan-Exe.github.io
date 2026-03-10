@@ -5,182 +5,469 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Arrieta</title>
-    <link rel="stylesheet" href="Css/styles.css?v=1.0">
-    <link rel="stylesheet" href="Css/styles.css">
+    <link rel="stylesheet" href="Css/styles.css?v=1.1">
 </head>
 
 <body>
-    <header class="fade-in">
-        <div class="header-content">
-            <div class="header-title-line">
-                <span class="header-line-vertical"></span>
-                <h1>JUAN ARRIETA</h1>
-            </div>
-        <div id="project-popup" class="project-popup-overlay" style="display:none;">
-            <div class="project-popup-modal">
-                <button class="project-popup-close" id="project-popup-close">&times;</button>
-                <div class="project-popup-slider">
-                    <button class="slider-arrow" id="slider-prev">&#8592;</button>
-                    <div class="slider-images">
-                        <img src="img/JUST MUSIC/JUST MUSIC INICIO.jpg" alt="Proyecto" class="slider-img active">
-                    </div>
-                    <button class="slider-arrow" id="slider-next">&#8594;</button>
-                </div>
-                <div class="project-popup-desc">
-                    <h2 id="popup-title">Título del Proyecto</h2>
-                    <p id="popup-desc">Aquí irá la descripción completa del proyecto seleccionada dinámicamente.</p>
-                    <a id="popup-github" href="#" target="_blank" class="project-popup-github">Ver en GitHub</a>
-                </div>
-            </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title"><span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
+            <p class="hero-desc hero-hidden">¡Hola! Soy <b>Juan Diego</b>. Estudiante de Ingeniería en Sistemas con 3+ años de experiencia en desarrollo de aplicaciones y páginas web de alto rendimiento.</p>
+            <a href="mailto:juandiegoarrietaherrera@gmail.com" class="hero-btn hero-hidden">CONTÁCTAME</a>
         </div>
-            <label>Creativo, responsable y proactivo</label>
+        <div class="hero-stats hero-hidden">
+            <div class="hero-stat"><span class="hero-stat-number">1+</span><span class="hero-stat-label">Año de experiencia Laboral</span></div>
+            <div class="hero-stat"><span class="hero-stat-number">4+</span><span class="hero-stat-label">Proyectos terminados</span></div>
+            <div class="hero-stat"><span class="hero-stat-number">5K+</span><span class="hero-stat-label">Horas trabajadas</span></div>
         </div>
-    </header>
+    </section>
 
-    <main>
+    <div id="project-popup" class="project-popup-overlay" style="display:none;"></div>
 
-    <div class="abt-cont-flex fade-in">
-            <div class="abt-cont-flex-con">
+    <main class="main-content-full">
 
-                <div class="abt-cont-flex-con-img-cha">
-                    <div class="abt-cont-flex-con-img">
-                        <img src="img/Yo.png" alt="">                        
+    <!-- SOBRE MI -->
+    <section class="about-section">
+        <div class="about-header">
+            <h2><span id="typewriter-about"></span><span class="typewriter-cursor">|</span></h2>
+            <div class="about-line"></div>
+        </div>
+        <div class="about-body">
+            <div class="about-card slide-up-blur">
+                <div class="sidebar-photo">
+                    <img src="img/Yo.png" alt="Juan Diego Arrieta">
+                </div>
+                <h3 class="sidebar-name">Juan Diego Arrieta</h3>
+                <span class="sidebar-role">Ing. en Sistemas</span>
+                <div class="sidebar-info">
+                    <div class="sidebar-info-item">
+                        <span class="sidebar-info-label">EMAIL</span>
+                        <span class="sidebar-info-value">juandiegoarrietaherrera@gmail.com</span>
                     </div>
-                    <div class="img-line-circle">
-                        <div class="linea-horizontal-img"></div>
-                        <div class="circle-img"></div>
+                    <div class="sidebar-info-item">
+                        <span class="sidebar-info-label">UBICACIÓN</span>
+                        <span class="sidebar-info-value">Colombia</span>
                     </div>
-                    <div class="abt-cont-flex-con-cha">
-                        <h2 class="competencias-title">COMPETENCIAS.</h2>
-                        <div class="competencias-lista">
-                            <div class="circle-competencias"></div>
-                            <div class="linea-vertical-competencias"></div>
-                            <ul>
-                                <li>Trabajo en equipo</li>
-                                <li>Comunicación efectiva</li>
-                                <li>Resolución de problemas</li>
-                                <li>Adaptabilidad</li>
-                                <li>Liderazgo</li>
-                                <li>Gestión del tiempo</li>
-                                <li>Creatividad</li>
-                                <li>Pensamiento crítico</li>
-                            </ul>
-                        </div>
+                    <div class="sidebar-info-item">
+                        <span class="sidebar-info-label">GITHUB</span>
+                        <a href="https://github.com/Juan-Exe" target="_blank" class="sidebar-info-value sidebar-link">Juan-Exe</a>
                     </div>
                 </div>
-
-                <div class="abt-cont-flex-con-inf">
-                    <div class="sobre-mi-title-line">
-                        <h2>SOBRE MI.</h2>
-                        <div class="linea-horizontal-sobremi"></div>
-                    </div>
-                    <p>¡Hola! Soy Juan Diego, estudiante de <b>Ingeniería en Sistemas</b> con 7 semestres concluidos. Me
+            </div>
+            <div class="about-text slide-up-blur" style="transition-delay: 0.15s;">
+                    <p>¡Hola! Soy Juan Diego, estudiante de <b>Ingeniería en Sistemas</b> con 8 semestres concluidos. Me
                         considero una persona proactiva, comprometida y responsable, con 3 años de experiencia en el
                         desarrollo de aplicaciones y páginas web diseñadas y programadas por mí; utilizando diversos
-                        lenguajes como <b>JavaScript</b>, <b>C#</b>, <b>Python</b> y <b>Java</b>, además de manejar bases de datos tanto relacionales
-                        como no relacionales, programadas con <b>MySQL</b> y <b>PHP</b>.
+                        lenguajes como <b>JavaScript</b>, <b>TypeScript</b>, <b>C#</b>, <b>Python</b>, <b>Java</b> y <b>Ruby</b>, con experiencia en frameworks como <b>React</b>, <b>Next.js</b> y <b>Bootstrap</b>, además de manejar bases de datos
+                        relacionales y no relacionales como <b>MySQL</b>, <b>PostgreSQL</b> y <b>MariaDB</b>.</p>
+                    <p>Cuento con experiencia en administración de servidores <b>VPS</b> con proveedores como <b>IONOS</b>, <b>AWS</b> y <b>Hostinger</b>.
                         Soy un apasionado por el aprendizaje continuo y el trabajo en equipo. He tenido la oportunidad
                         de desempeñarme como líder en el semillero <b>SECBI</b> de la <b>Universidad Cooperativa de Colombia</b>,
                         donde he guiado a mis compañeros, transmitiendo conocimientos de manera clara y fomentando el
-                        crecimiento colectivo.
-                        La responsabilidad y el enfoque positivo son pilares que siempre aporto a cada proyecto en el
+                        crecimiento colectivo.</p>
+                    <p>La responsabilidad y el enfoque positivo son pilares que siempre aporto a cada proyecto en el
                         que participo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section">
+        <div class="skills-header">
+            <h2><span id="typewriter-skills"></span><span class="typewriter-cursor">|</span></h2>
+            <div class="skills-line"></div>
+        </div>
+        <div class="skills-body">
+            <div class="skills-category slide-up-blur">
+                <h3 class="skills-category-title">FRONTEND</h3>
+                <div class="skills-list">
+                    <span class="skill-item">HTML</span>
+                    <span class="skill-item">CSS</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">TypeScript</span>
+                    <span class="skill-item">React</span>
+                    <span class="skill-item">Next.js</span>
+                    <span class="skill-item">Bootstrap</span>
+                </div>
+            </div>
+            <div class="skills-category slide-up-blur">
+                <h3 class="skills-category-title">BACKEND</h3>
+                <div class="skills-list">
+                    <span class="skill-item">Node.js</span>
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">PHP</span>
+                    <span class="skill-item">Ruby</span>
+                    <span class="skill-item">C#</span>
+                </div>
+            </div>
+            <div class="skills-category slide-up-blur">
+                <h3 class="skills-category-title">DATABASE</h3>
+                <div class="skills-list">
+                    <span class="skill-item">MySQL</span>
+                    <span class="skill-item">PostgreSQL</span>
+                    <span class="skill-item">MariaDB</span>
+                </div>
+            </div>
+            <div class="skills-category slide-up-blur">
+                <h3 class="skills-category-title">TOOLS</h3>
+                <div class="skills-list">
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">Figma</span>
+                    <span class="skill-item">AWS</span>
+                    <span class="skill-item">IONOS</span>
+                    <span class="skill-item">Hostinger</span>
                 </div>
             </div>
         </div>
+    </section>
 
-    <div class="skl-cont-flex fade-in">
-            <div class="skl-cont-flex-con">
-                <h2>HABILIDADES.</h2>
-                <div class="skl-cont-flex-con-lng">
-                    <label class="lan-skl-cont-flex-con-lng" for="">Python</label>
-                    <label class="lan-skl-cont-flex-con-lng" for="">JavaScript</label>
-                    <label class="lan-skl-cont-flex-con-lng" for="">HTML</label>
-                    <label class="lan-skl-cont-flex-con-lng" for="">Node.js</label>
-                    <label class="lan-skl-cont-flex-con-lng" for="">Java</label>
-                    <label class="lan-skl-cont-flex-con-lng" for="">Git</label>
-                    <label class="lan-skl-cont-flex-con-lng" for="">PHP</label>
-                    <label class="lan-skl-cont-flex-con-lng" for="">Figma</label>
-                    <label class="lan-skl-cont-flex-con-lng" for="">C#</label>
+    <section class="experience-section">
+        <div class="experience-header">
+            <h2><span id="typewriter-experience"></span><span class="typewriter-cursor">|</span></h2>
+            <div class="experience-line"></div>
+        </div>
+        <div class="experience-body">
+            <div class="experience-item slide-up-blur">
+                <div class="experience-left">
+                    <h3 class="experience-company">PKI SERVICES</h3>
+                    <span class="experience-date">Ene 2025 — Presente</span>
                 </div>
-
+                <div class="experience-right">
+                    <h4 class="experience-role">Ingeniería y Desarrollo</h4>
+                    <div class="experience-tags">
+                        <span class="experience-tag">Frontend</span>
+                        <span class="experience-tag">Backend</span>
+                        <span class="experience-tag">Servidores</span>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-    <div class="pro-cont-flex fade-in">
-            <div class="pro-cont-flex-con">
-                <h2>PROYECTOS.</h2>
-
-                <div class="pro-cont-flex-con-cont">
-                    <div class="pro-cont-flex-con-cont-pry">
-                        <h2>JUST MUSIC</h2>
-                        <div class="pro-lang-labels">
-                            <span class="pro-lang-label">JAVA</span>
-                        </div>
-                        <img src="img/JUST MUSIC/JUST MUSIC INICIO.jpg" alt="JUST MUSIC">
-                        <div class="pro-cont-flex-con-cont-pry-par">
-                            <p>Una aplicación de <b>streaming de música</b> cuyo concepto es ofrecer un espacio tanto para <b>usuarios</b> como para <b>músicos</b>, donde puedan <b>compartir</b> y <b>descubrir nueva música</b> de manera sencilla y rápida.</p>
-                        </div>
-                    </div>
-                    <div class="pro-cont-flex-con-cont-pry">
-                        <h2>COMIC HOUSE</h2>
-                        <div class="pro-lang-labels">
-                            <span class="pro-lang-label">PHP</span>
-                            <span class="pro-lang-label">HTML</span>
-                            <span class="pro-lang-label">CSS</span>
-                        </div>
-                        <img src="img/COMIC HOUSE/COMIC HOUSE INICIO.png.png" alt="COMIC HOUSE">
-                        <div class="pro-cont-flex-con-cont-pry-par">
-                            <p>Una aplicación de <b>streaming de cómics</b> que permite a los usuarios <b>leer</b> sus cómics favoritos de manera sencilla y rápida. Hecho bajo <b>HTML</b>, <b>PHP</b> y <b>CSS</b>, Comic House permite buscar, leer y gestionar cómics de manera eficiente, utilizando una base de datos <b>MySQL</b> para gestionar los usuarios y los cómics disponibles.</p>
-                        </div>
-                    </div>
-                    <div class="pro-cont-flex-con-cont-pry">
-                        <h2>FRISBY TRIVIA</h2>
-                        <div class="pro-lang-labels">
-                            <span class="pro-lang-label">JS</span>
-                            <span class="pro-lang-label">HTML</span>
-                            <span class="pro-lang-label">CSS</span>
-                        </div>
-                        <img src="img/FRISBY TRIVIA/FRISBY TRIVIA INICIO.png" alt="FRISBY TRIVIA">
-                        <div class="pro-cont-flex-con-cont-pry-par">
-                            <p>La Frisby Trivia es un proyecyto de juego personal, es na aplicación de <b>trivia</b> que permite a los usuarios <b>poner a prueba</b> sus conocimientos sobre música, cine y más temas juveniles y de cultura pop. Hecho bajo <b>HTML</b>, <b>NODE.JS</b> y <b>CSS</b>, Frisby Trivia ofrece una experiencia de juego interactiva y entretenida dirijida a jugarse en obs studio para imitar una transmision de quien quiere ser millonario.</p>
-                        </div>
-                    </div>
-
+    <section class="projects-section">
+        <div class="projects-header">
+            <h2><span id="typewriter-projects"></span><span class="typewriter-cursor">|</span></h2>
+            <div class="projects-line"></div>
+        </div>
+        <div class="projects-body">
+            <a href="projects/just-music.html" class="project-row slide-up-blur" data-img="img/JUST MUSIC/JUST MUSIC INICIO.jpg" data-name="Just Music">
+                <div class="project-info">
+                    <h3 class="project-name">Just Music</h3>
+                    <p class="project-desc">Una aplicación de streaming de música cuyo concepto es ofrecer un espacio tanto para usuarios como para músicos, donde puedan compartir y descubrir nueva música.</p>
                 </div>
-
+                <div class="project-tags">
+                    <span>Java</span>
+                </div>
+            </a>
+            <a href="projects/comic-house.html" class="project-row slide-up-blur" data-img="img/COMIC HOUSE/COMIC HOUSE INICIO.png.png" data-name="Comic House">
+                <div class="project-info">
+                    <h3 class="project-name">Comic House</h3>
+                    <p class="project-desc">Una aplicación de streaming de cómics que permite a los usuarios leer sus cómics favoritos, utilizando MySQL para gestionar los datos.</p>
+                </div>
+                <div class="project-tags">
+                    <span>PHP</span><span>HTML</span><span>CSS</span>
+                </div>
+            </a>
+            <a href="projects/frisby-trivia.html" class="project-row slide-up-blur" data-img="img/FRISBY TRIVIA/FRISBY TRIVIA INICIO.png" data-name="Frisby Trivia">
+                <div class="project-info">
+                    <h3 class="project-name">Frisby Trivia</h3>
+                    <p class="project-desc">Una aplicación de trivia interactiva que permite poner a prueba conocimientos sobre música, cine y cultura pop, diseñada para transmisiones en OBS Studio.</p>
+                </div>
+                <div class="project-tags">
+                    <span>JS</span><span>HTML</span><span>CSS</span>
+                </div>
+            </a>
+            <div class="project-preview-img">
+                <img id="project-hover-img" src="" alt="Preview">
             </div>
         </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-header">
+            <h2><span id="typewriter-contact"></span><span class="typewriter-cursor">|</span></h2>
+            <div class="contact-line"></div>
+        </div>
+        <div class="contact-body">
+            <div class="contact-text slide-up-blur" style="transition-delay: 0s;">
+                <p>¿Tienes un proyecto en mente o quieres trabajar juntos? No dudes en contactarme.</p>
+            </div>
+            <div class="contact-links">
+                <a class="contact-item slide-up-blur" href="https://github.com/Juan-Exe" target="_blank" style="transition-delay: 0.15s;">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <div class="contact-item-info">
+                        <span class="contact-item-label">GITHUB</span>
+                        <span class="contact-item-value">Juan-Exe</span>
+                    </div>
+                </a>
+                <a class="contact-item slide-up-blur" href="mailto:juandiegoarrietaherrera@gmail.com" style="transition-delay: 0.3s;">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    <div class="contact-item-info">
+                        <span class="contact-item-label">CORREO</span>
+                        <span class="contact-item-value">juandiegoarrietaherrera@gmail.com</span>
+                    </div>
+                </a>
+                <a class="contact-item slide-up-blur" href="docs/hoja_de_vida.pdf" target="_blank" style="transition-delay: 0.45s;">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <div class="contact-item-info">
+                        <span class="contact-item-label">CV</span>
+                        <span class="contact-item-value">Descargar hoja de vida</span>
+                    </div>
+                </a>
+                <a class="contact-item slide-up-blur" href="https://www.linkedin.com/in/juan-diego-arrieta-herrera-4328b537b/" target="_blank" style="transition-delay: 0.6s;">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <div class="contact-item-info">
+                        <span class="contact-item-label">LINKEDIN</span>
+                        <span class="contact-item-value">Juan Diego Arrieta</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <footer class="site-footer slide-up-blur" style="transition-delay: 0.75s;">
+            <p>© 2025 Juan Diego Arrieta. Todos los derechos reservados.</p>
+        </footer>
+    </section>
 
     </main>
-
-    <footer>
-    <div class="cnt-cont-flex fade-in">
-            <div class="cnt-cont-flex-con">
-                <h2>CONTACTO.</h2>
-                <div class="cnt-cont-flex-con-inf">
-                    <a class="cnt-cont-flex-con-inf-boton" href="https://github.com/Juan-Exe" target="_blank">GITHUB</a>
-                    <a class="cnt-cont-flex-con-inf-boton" href="mailto:juandiegoarrietaherrera@gmail.com">CORREO: JUANDIEGOARRIETAHERRERA@GMAIL.COM</a>
-                    <a class="cnt-cont-flex-con-inf-boton" href="docs/hoja_de_vida.pdf" target="_blank">DESCARGAR HOJA DE VIDA</a>
-                </div>
-            </div>
-        </div>
-
-    </footer>
     <script src="Js/project-popup.js"></script>
     
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const fadeEls = document.querySelectorAll('.fade-in');
-        const observer = new window.IntersectionObserver((entries, obs) => {
+        // Typewriter for hero
+        const lines = [
+            { text: 'JUAN', cls: 'hero-highlight' },
+            { text: 'ARRIETA', cls: '' }
+        ];
+        const target = document.getElementById('typewriter');
+        let lineIdx = 0, charIdx = 0;
+        function type() {
+            if (lineIdx >= lines.length) {
+                const hiddenEls = document.querySelectorAll('.hero-hidden');
+                hiddenEls.forEach((el, i) => {
+                    setTimeout(() => el.classList.add('hero-visible'), i * 200);
+                });
+                return;
+            }
+            const line = lines[lineIdx];
+            if (charIdx < line.text.length) {
+                if (charIdx === 0 && lineIdx > 0) target.appendChild(document.createElement('br'));
+                const span = target.querySelector('.typing-line-' + lineIdx) || (() => {
+                    const s = document.createElement('span');
+                    if (line.cls) s.className = line.cls;
+                    s.classList.add('typing-line-' + lineIdx);
+                    target.appendChild(s);
+                    return s;
+                })();
+                span.textContent += line.text[charIdx];
+                charIdx++;
+                setTimeout(type, 100);
+            } else {
+                lineIdx++;
+                charIdx = 0;
+                setTimeout(type, 200);
+            }
+        }
+        type();
+
+        // Typewriter for about section
+        function typeAbout(targetEl, text, speed, callback) {
+            let i = 0;
+            function t() {
+                if (i < text.length) {
+                    targetEl.textContent += text[i];
+                    i++;
+                    setTimeout(t, speed);
+                } else if (callback) callback();
+            }
+            t();
+        }
+
+        // Observer for slide-up-blur and fade-in elements
+        // Exclude elements inside typewriter-controlled sections
+        const typewriterSections = ['.about-section', '.skills-section', '.experience-section', '.projects-section', '.contact-section'];
+        const animEls = document.querySelectorAll('.fade-in, .slide-up-blur');
+        const observer = new window.IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const inTypewriterSection = typewriterSections.some(sel => entry.target.closest(sel));
+                if (inTypewriterSection) return;
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    obs.unobserve(entry.target);
+                } else {
+                    entry.target.classList.remove('visible');
                 }
             });
-        }, { threshold: 0.18 });
-        fadeEls.forEach(el => observer.observe(el));
+        }, { threshold: 0.15 });
+        animEls.forEach(el => observer.observe(el));
+
+        // About typewriter triggered on scroll
+        const aboutSection = document.querySelector('.about-section');
+        const aboutTarget = document.getElementById('typewriter-about');
+        let aboutTyped = false;
+        const aboutObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !aboutTyped) {
+                    aboutTyped = true;
+                    aboutTarget.textContent = '';
+                    typeAbout(aboutTarget, 'Sobre mi.', 40, () => {
+                        document.querySelectorAll('.about-body .slide-up-blur').forEach((el, i) => {
+                            setTimeout(() => el.classList.add('visible'), i * 150);
+                        });
+                    });
+                } else if (!entry.isIntersecting && aboutTyped) {
+                    aboutTyped = false;
+                    aboutTarget.textContent = '';
+                    document.querySelectorAll('.about-body .slide-up-blur').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                }
+            });
+        }, { threshold: 0.15 });
+        aboutObs.observe(aboutSection);
+
+        // Typewriter for skills section
+        const skillsSection = document.querySelector('.skills-section');
+        const skillsTarget = document.getElementById('typewriter-skills');
+        let skillsTyped = false;
+        const skillsObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !skillsTyped) {
+                    skillsTyped = true;
+                    skillsTarget.textContent = '';
+                    typeAbout(skillsTarget, 'Habilidades.', 40, () => {
+                        document.querySelectorAll('.skills-body .slide-up-blur').forEach((el, i) => {
+                            setTimeout(() => el.classList.add('visible'), i * 150);
+                        });
+                    });
+                } else if (!entry.isIntersecting && skillsTyped) {
+                    skillsTyped = false;
+                    skillsTarget.textContent = '';
+                    document.querySelectorAll('.skills-body .slide-up-blur').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                }
+            });
+        }, { threshold: 0.15 });
+        skillsObs.observe(skillsSection);
+
+        // Typewriter for experience section
+        const expSection = document.querySelector('.experience-section');
+        const expTarget = document.getElementById('typewriter-experience');
+        let expTyped = false;
+        const expObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !expTyped) {
+                    expTyped = true;
+                    expTarget.textContent = '';
+                    typeAbout(expTarget, 'Mi experiencia.', 40, () => {
+                        document.querySelectorAll('.experience-body .slide-up-blur').forEach((el, i) => {
+                            setTimeout(() => el.classList.add('visible'), i * 150);
+                        });
+                    });
+                } else if (!entry.isIntersecting && expTyped) {
+                    expTyped = false;
+                    expTarget.textContent = '';
+                    document.querySelectorAll('.experience-body .slide-up-blur').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                }
+            });
+        }, { threshold: 0.15 });
+        expObs.observe(expSection);
+
+        // Typewriter for projects section
+        const projSection = document.querySelector('.projects-section');
+        const projTarget = document.getElementById('typewriter-projects');
+        let projTyped = false;
+        const projObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !projTyped) {
+                    projTyped = true;
+                    projTarget.textContent = '';
+                    typeAbout(projTarget, 'Proyectos.', 40, () => {
+                        document.querySelectorAll('.projects-body .slide-up-blur').forEach((el, i) => {
+                            setTimeout(() => el.classList.add('visible'), i * 150);
+                        });
+                    });
+                } else if (!entry.isIntersecting && projTyped) {
+                    projTyped = false;
+                    projTarget.textContent = '';
+                    document.querySelectorAll('.projects-body .slide-up-blur').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                }
+            });
+        }, { threshold: 0.15 });
+        projObs.observe(projSection);
+
+        // Typewriter for contact section
+        const contactSection = document.querySelector('.contact-section');
+        const contactTarget = document.getElementById('typewriter-contact');
+        let contactTyped = false;
+        const contactObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !contactTyped) {
+                    contactTyped = true;
+                    contactTarget.textContent = '';
+                    typeAbout(contactTarget, 'Contacto.', 40, () => {
+                        document.querySelectorAll('.contact-section .slide-up-blur').forEach((el, i) => {
+                            setTimeout(() => el.classList.add('visible'), i * 150);
+                        });
+                    });
+                } else if (!entry.isIntersecting && contactTyped) {
+                    contactTyped = false;
+                    contactTarget.textContent = '';
+                    document.querySelectorAll('.contact-section .slide-up-blur').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                }
+            });
+        }, { threshold: 0.15 });
+        contactObs.observe(contactSection);
+
+        // Project hover typewriter + image preview follows mouse
+        const previewContainer = document.querySelector('.project-preview-img');
+        const previewImg = document.getElementById('project-hover-img');
+        let projectTypeTimer = null;
+        let activeRow = null;
+
+        document.addEventListener('mousemove', (e) => {
+            if (activeRow) {
+                previewContainer.style.top = e.clientY - 150 + 'px';
+            }
+        });
+
+        document.querySelectorAll('.project-row').forEach(row => {
+            const nameEl = row.querySelector('.project-name');
+            const fullName = row.getAttribute('data-name');
+            row.addEventListener('mouseenter', () => {
+                activeRow = row;
+                nameEl.textContent = '';
+                let i = 0;
+                projectTypeTimer = setInterval(() => {
+                    if (i < fullName.length) {
+                        nameEl.textContent += fullName[i];
+                        i++;
+                    } else {
+                        clearInterval(projectTypeTimer);
+                        projectTypeTimer = null;
+                        const imgSrc = row.getAttribute('data-img');
+                        if (imgSrc) {
+                            previewImg.src = imgSrc;
+                            previewContainer.classList.add('active');
+                        }
+                    }
+                }, 60);
+            });
+            row.addEventListener('mouseleave', () => {
+                activeRow = null;
+                if (projectTypeTimer) {
+                    clearInterval(projectTypeTimer);
+                    projectTypeTimer = null;
+                }
+                nameEl.textContent = fullName;
+                previewContainer.classList.remove('active');
+            });
+        });
     });
     </script>
 </body>
