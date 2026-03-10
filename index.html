@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Arrieta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Css/styles.css?v=1.1">
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 </head>
 
 <body>
+    <canvas id="cyber-bg"></canvas>
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title"><span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
@@ -232,6 +237,94 @@
     <script src="Js/project-popup.js"></script>
     
     <script>
+    // Cyber particle network background
+    (function() {
+        const canvas = document.getElementById('cyber-bg');
+        const ctx = canvas.getContext('2d');
+        let w, h, particles, mouse;
+
+        function init() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+            mouse = { x: -1000, y: -1000 };
+            const count = Math.min(Math.floor((w * h) / 15000), 120);
+            particles = [];
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    r: Math.random() * 1.5 + 0.5
+                });
+            }
+        }
+
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0) p.x = w;
+                if (p.x > w) p.x = 0;
+                if (p.y < 0) p.y = h;
+                if (p.y > h) p.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(45, 212, 191, 0.5)';
+                ctx.fill();
+
+                // Mouse interaction
+                const dxM = p.x - mouse.x;
+                const dyM = p.y - mouse.y;
+                const distM = Math.sqrt(dxM * dxM + dyM * dyM);
+                if (distM < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.strokeStyle = 'rgba(45, 212, 191, ' + (1 - distM / 150) * 0.4 + ')';
+                    ctx.lineWidth = 0.6;
+                    ctx.stroke();
+                }
+
+                // Connect nearby particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 130) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = 'rgba(45, 212, 191, ' + (1 - dist / 130) * 0.2 + ')';
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('resize', resize);
+
+        init();
+        animate();
+    })();
+
     document.addEventListener('DOMContentLoaded', function() {
         // Typewriter for hero
         const lines = [
@@ -469,6 +562,11 @@
             });
         });
     });
+    </script>
+    <script>
+    const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
     </script>
 </body>
 </html>

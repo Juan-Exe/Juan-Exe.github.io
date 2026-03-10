@@ -1,8 +1,43 @@
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
 body {
     margin: 0;
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     color: #ddd;
     background: #1a1a1a;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#cyber-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero,
+.main-content-full,
+.contact-section {
+    position: relative;
+    z-index: 1;
 }
 
 h2{
@@ -15,7 +50,7 @@ h2{
 .hero {
     width: 100%;
     min-height: 100vh;
-    background: #1a1a1a;
+    background: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,7 +161,7 @@ h2{
 
 /* ===== MAIN CONTENT FULL ===== */
 .main-content-full {
-    background: #1a1a1a;
+    background: transparent;
     padding: 80px 10%;
     display: flex;
     flex-direction: column;
@@ -608,7 +643,7 @@ h2{
 }
 
 .contact-item:hover {
-    background: #252525;
+    background: rgba(37, 37, 37, 0.7);
     border-color: #333;
 }
 
@@ -797,8 +832,72 @@ h2{
 @media (max-width: 768px) {
 
     .main-content-full {
-        padding: 40px 5%;
-        gap: 40px;
+        padding: 30px 6%;
+        gap: 30px;
+    }
+
+    body {
+        text-align: left;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 0 7%;
+        text-align: left;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        margin-left: 0;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        margin-left: 0;
+    }
+
+    .hero-desc {
+        font-size: 0.95rem;
+        margin-left: 0;
+    }
+
+    .hero-btn {
+        padding: 12px 28px;
+        font-size: 0.85rem;
+    }
+
+    .hero-stats {
+        position: static;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: flex-start;
+        margin-top: 40px;
+    }
+
+    .hero-stat {
+        align-items: flex-start;
+    }
+
+    .hero-stat-number {
+        font-size: 2rem;
+    }
+
+    .hero-stat-label {
+        font-size: 0.75rem;
+    }
+
+    /* About */
+    .about-header h2,
+    .skills-header h2,
+    .experience-header h2,
+    .projects-header h2,
+    .contact-header h2 {
+        font-size: 1.6rem;
     }
 
     .about-body {
@@ -809,91 +908,97 @@ h2{
     .about-card {
         width: 100%;
         min-width: unset;
-    }
-
-    body {
-        text-align: center;
-    }
-
-    h1, h2 {
-        text-align: center;
-        font-size: 1.8rem;
-    }
-
-    .hero {
-        padding: 60px 8%;
-        text-align: center;
-        justify-content: center;
-        min-height: 100vh;
-    }
-
-    .hero-content {
-        margin-left: 0;
-    }
-
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .hero-desc {
-        font-size: 1rem;
-    }
-
-    .hero-stats {
-        position: static;
-        flex-direction: row;
-        gap: 30px;
-        justify-content: center;
-        margin-top: 40px;
-    }
-
-    .hero-stat {
-        align-items: center;
+        border-right: none;
+        padding: 0;
+        border-bottom: 1px solid #333;
+        padding-bottom: 30px;
     }
 
     .about-text p {
-        text-align: justify;
+        text-align: left;
+        font-size: 0.95rem;
     }
 
-    .pro-cont-flex {
-        margin-bottom: 0;
-    }
-
-    .pro-cont-flex-con {
-        width: 100%;
-        padding: 24px;
-    }
-
+    /* Skills */
     .skills-category {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 15px;
     }
 
     .skills-category-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .skills-list {
+        gap: 12px 30px;
+    }
+
+    .skill-item {
+        font-size: 0.95rem;
+    }
+
+    /* Experience */
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .experience-company {
+        font-size: 1.2rem;
+    }
+
+    /* Projects */
+    .project-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 25px 0;
     }
 
     .project-name {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        min-height: auto;
+    }
+
+    .project-desc {
+        font-size: 0.85rem;
+    }
+
+    .project-tags {
+        margin-left: 0;
+    }
+
+    .project-tags span {
+        font-size: 0.8rem;
     }
 
     .project-preview-img {
         display: none;
     }
 
+    /* Contact */
     .contact-links {
         grid-template-columns: 1fr;
     }
 
     .contact-item {
-        padding: 20px;
+        padding: 20px 15px;
     }
 
-    .experience-item {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .contact-item-value {
+        font-size: 0.85rem;
+        word-break: break-all;
     }
-    
+
+    .contact-text p {
+        font-size: 0.95rem;
+    }
+
+    .site-footer {
+        margin-top: 40px;
+    }
+
+    /* Popup */
     .project-popup-modal {
         flex-direction: column;
         width: 95vw;
@@ -913,7 +1018,28 @@ h2{
 
 @media (max-width: 400px) {
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-name {
+        font-size: 1.4rem;
+    }
+
+    .skills-category-title {
+        font-size: 1rem;
+    }
+
+    .about-header h2,
+    .skills-header h2,
+    .experience-header h2,
+    .projects-header h2,
+    .contact-header h2 {
+        font-size: 1.3rem;
     }
 }
 
