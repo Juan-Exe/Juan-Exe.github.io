@@ -951,7 +951,10 @@ h2{
         gap: 0;
     }
 
-    .panel-section {
+    .panel-section,
+    .panel-section.panel-prev,
+    .panel-section.panel-next,
+    .panel-section.panel-active {
         min-height: auto;
         padding: 48px 6%;
         opacity: 1;
@@ -976,10 +979,10 @@ h2{
 
     /* Hero */
     .hero {
-        padding: 0 7%;
+        padding: 24px 7% 36px;
         text-align: left;
-        justify-content: center;
-        min-height: 100vh;
+        justify-content: flex-start;
+        min-height: auto;
     }
 
     .hero-content {
