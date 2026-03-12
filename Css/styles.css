@@ -57,15 +57,17 @@ body {
 }
 
 .intro-word {
-    font-size: clamp(2.8rem, 10vw, 8.2rem);
+    font-size: clamp(2.1rem, 13vw, 6.2rem);
     font-weight: 900;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
     color: #fff;
     text-shadow: 0 0 20px rgba(45, 212, 191, 0.18);
     opacity: 0;
     transform: translateY(14px) scale(0.985);
     filter: blur(10px);
     transition: opacity 0.28s ease, transform 0.28s ease, filter 0.28s ease;
+    max-width: 92vw;
+    text-align: center;
 }
 
 .intro-word.show {
@@ -945,6 +947,10 @@ h2{
 /* Legacy 1673px breakpoint removed — old classes no longer used */
 
 @media (max-width: 768px) {
+
+    .intro-overlay {
+        display: none;
+    }
 
     .main-content-full {
         padding: 0;
