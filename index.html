@@ -14,10 +14,10 @@
 
 <body>
     <canvas id="cyber-bg"></canvas>
-    <section class="hero">
+    <section class="hero panel-section panel-hero">
         <div class="hero-content">
             <h1 class="hero-title"><span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
-            <p class="hero-desc hero-hidden">¡Hola! Soy <b>Juan Diego</b>. Estudiante de Ingeniería en Sistemas con 3+ años de experiencia en desarrollo de aplicaciones y páginas web de alto rendimiento.</p>
+            <p class="hero-desc hero-hidden">¡Hola! Soy <b>Juan Diego</b>. Estudiante de Ingeniería en Sistemas con 3+ años de experiencia en desarrollo de aplicaciones, páginas web de alto rendimiento y sitios corporativos, con buen manejo del inglés y habilidades para crear prompts eficaces con IA usando Claude y Gemini.</p>
             <a href="mailto:juandiegoarrietaherrera@gmail.com" class="hero-btn hero-hidden">CONTÁCTAME</a>
         </div>
         <div class="hero-stats hero-hidden">
@@ -32,7 +32,7 @@
     <main class="main-content-full">
 
     <!-- SOBRE MI -->
-    <section class="about-section">
+    <section class="about-section panel-section">
         <div class="about-header">
             <h2><span id="typewriter-about"></span><span class="typewriter-cursor">|</span></h2>
             <div class="about-line"></div>
@@ -76,7 +76,7 @@
         </div>
     </section>
 
-    <section class="skills-section">
+    <section class="skills-section panel-section">
         <div class="skills-header">
             <h2><span id="typewriter-skills"></span><span class="typewriter-cursor">|</span></h2>
             <div class="skills-line"></div>
@@ -121,12 +121,15 @@
                     <span class="skill-item">AWS</span>
                     <span class="skill-item">IONOS</span>
                     <span class="skill-item">Hostinger</span>
+                    <span class="skill-item">Prompt Engineering</span>
+                    <span class="skill-item">Claude</span>
+                    <span class="skill-item">Gemini</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="experience-section">
+    <section class="experience-section panel-section">
         <div class="experience-header">
             <h2><span id="typewriter-experience"></span><span class="typewriter-cursor">|</span></h2>
             <div class="experience-line"></div>
@@ -144,12 +147,13 @@
                         <span class="experience-tag">Backend</span>
                         <span class="experience-tag">Servidores</span>
                     </div>
+                    <p class="experience-detail">Se trabajaron proyectos como firmadores, validadores de identidad y soluciones de correo certificado, utilizando JavaScript, Next.js, Node.js, C# y Ruby.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="projects-section">
+    <section class="projects-section panel-section">
         <div class="projects-header">
             <h2><span id="typewriter-projects"></span><span class="typewriter-cursor">|</span></h2>
             <div class="projects-line"></div>
@@ -188,7 +192,7 @@
         </div>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section panel-section">
         <div class="contact-header">
             <h2><span id="typewriter-contact"></span><span class="typewriter-cursor">|</span></h2>
             <div class="contact-line"></div>
@@ -564,9 +568,47 @@
     });
     </script>
     <script>
-    const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+    const lenis = new Lenis({
+        duration: 1.55,
+        easing: t => 1 - Math.pow(1 - t, 4),
+        smoothWheel: true,
+        smoothTouch: false,
+        wheelMultiplier: 0.85,
+        touchMultiplier: 1.1
+    });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
+
+    const panels = Array.from(document.querySelectorAll('.panel-section'));
+
+    function getActivePanelIndex() {
+        const anchorTop = Math.min(180, window.innerHeight * 0.22);
+        let activeIndex = 0;
+
+        panels.forEach((panel, index) => {
+            const rect = panel.getBoundingClientRect();
+            if (rect.top <= anchorTop) {
+                activeIndex = index;
+            }
+        });
+
+        return activeIndex;
+    }
+
+    function updatePanelState() {
+        const activeIndex = getActivePanelIndex();
+        panels.forEach((panel, index) => {
+            panel.classList.toggle('panel-active', index === activeIndex);
+            panel.classList.toggle('panel-prev', index < activeIndex);
+            panel.classList.toggle('panel-next', index > activeIndex);
+        });
+    }
+
+    updatePanelState();
+    window.addEventListener('scroll', updatePanelState, { passive: true });
+    window.addEventListener('resize', () => {
+        updatePanelState();
+    });
     </script>
 </body>
 </html>
