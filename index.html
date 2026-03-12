@@ -14,6 +14,9 @@
 
 <body>
     <canvas id="cyber-bg"></canvas>
+    <div id="intro-overlay" class="intro-overlay" aria-hidden="true">
+        <span id="intro-word" class="intro-word">CREATIVO</span>
+    </div>
     <section class="hero panel-section panel-hero">
         <div class="hero-content">
             <h1 class="hero-title"><span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
@@ -337,34 +340,80 @@
         ];
         const target = document.getElementById('typewriter');
         let lineIdx = 0, charIdx = 0;
-        function type() {
-            if (lineIdx >= lines.length) {
-                const hiddenEls = document.querySelectorAll('.hero-hidden');
-                hiddenEls.forEach((el, i) => {
-                    setTimeout(() => el.classList.add('hero-visible'), i * 200);
-                });
+        function startHeroTypewriter() {
+            target.textContent = '';
+            lineIdx = 0;
+            charIdx = 0;
+
+            function type() {
+                if (lineIdx >= lines.length) {
+                    const hiddenEls = document.querySelectorAll('.hero-hidden');
+                    hiddenEls.forEach((el, i) => {
+                        setTimeout(() => el.classList.add('hero-visible'), i * 200);
+                    });
+                    return;
+                }
+                const line = lines[lineIdx];
+                if (charIdx < line.text.length) {
+                    if (charIdx === 0 && lineIdx > 0) target.appendChild(document.createElement('br'));
+                    const span = target.querySelector('.typing-line-' + lineIdx) || (() => {
+                        const s = document.createElement('span');
+                        if (line.cls) s.className = line.cls;
+                        s.classList.add('typing-line-' + lineIdx);
+                        target.appendChild(s);
+                        return s;
+                    })();
+                    span.textContent += line.text[charIdx];
+                    charIdx++;
+                    setTimeout(type, 100);
+                } else {
+                    lineIdx++;
+                    charIdx = 0;
+                    setTimeout(type, 200);
+                }
+            }
+
+            type();
+        }
+
+        function runIntroSplash() {
+            const introOverlay = document.getElementById('intro-overlay');
+            const introWord = document.getElementById('intro-word');
+            if (!introOverlay || !introWord) {
+                startHeroTypewriter();
                 return;
             }
-            const line = lines[lineIdx];
-            if (charIdx < line.text.length) {
-                if (charIdx === 0 && lineIdx > 0) target.appendChild(document.createElement('br'));
-                const span = target.querySelector('.typing-line-' + lineIdx) || (() => {
-                    const s = document.createElement('span');
-                    if (line.cls) s.className = line.cls;
-                    s.classList.add('typing-line-' + lineIdx);
-                    target.appendChild(s);
-                    return s;
-                })();
-                span.textContent += line.text[charIdx];
-                charIdx++;
-                setTimeout(type, 100);
-            } else {
-                lineIdx++;
-                charIdx = 0;
-                setTimeout(type, 200);
+
+            const words = ['CREATIVO', 'RESPONSABLE', 'PROACTIVO'];
+            let idx = 0;
+
+            function showNextWord() {
+                if (idx >= words.length) {
+                    introOverlay.classList.add('done');
+                    setTimeout(() => {
+                        introOverlay.remove();
+                        startHeroTypewriter();
+                    }, 320);
+                    return;
+                }
+
+                introWord.textContent = words[idx];
+                introWord.classList.remove('show');
+                void introWord.offsetWidth;
+                introWord.classList.add('show');
+
+                setTimeout(() => {
+                    introWord.classList.remove('show');
+                }, 340);
+
+                idx++;
+                setTimeout(showNextWord, 460);
             }
+
+            setTimeout(showNextWord, 100);
         }
-        type();
+
+        runIntroSplash();
 
         // Typewriter for about section
         function typeAbout(targetEl, text, speed, callback) {
