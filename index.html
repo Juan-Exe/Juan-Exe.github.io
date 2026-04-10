@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -10,17 +10,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Css/styles.css?v=1.1">
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="Js/i18n.js"></script>
 </head>
 
 <body>
     <canvas id="cyber-bg"></canvas>
+    <button id="lang-btn" onclick="toggleLang()" aria-label="Switch language">ES</button>
     <div id="intro-overlay" class="intro-overlay" aria-hidden="true">
-        <span id="intro-word" class="intro-word">CREATIVO</span>
+        <span id="intro-word" class="intro-word">CREATIVE</span>
     </div>
     <section class="hero panel-section panel-hero">
         <div class="hero-content">
             <h1 class="hero-title"><span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
-            <p class="hero-desc hero-hidden">¡Hola! Soy <b>Juan Diego</b>. Estudiante de Ingeniería en Sistemas con 3+ años de experiencia en desarrollo de aplicaciones, páginas web de alto rendimiento y sitios corporativos, con buen manejo del inglés y habilidades para crear prompts eficaces con IA usando Claude y Gemini.</p>
+            <p class="hero-desc hero-hidden">¡Hola! Soy <b>Juan Diego</b>. Estudiante de Ingeniería en Sistemas, <b>Desarrollador Full Stack</b> y <b>Diseñador UX/UI</b> con 3+ años de experiencia en desarrollo de aplicaciones, páginas web de alto rendimiento y sitios corporativos, con buen manejo del inglés y habilidades para crear prompts eficaces con IA usando Claude y Gemini.</p>
             <a href="mailto:juandiegoarrietaherrera@gmail.com" class="hero-btn hero-hidden">CONTÁCTAME</a>
         </div>
         <div class="hero-stats hero-hidden">
@@ -46,7 +48,7 @@
                     <img src="img/Yo.png" alt="Juan Diego Arrieta">
                 </div>
                 <h3 class="sidebar-name">Juan Diego Arrieta</h3>
-                <span class="sidebar-role">Ing. en Sistemas</span>
+                <span class="sidebar-role">Ing. en Sistemas · Full Stack · UX/UI</span>
                 <div class="sidebar-info">
                     <div class="sidebar-info-item">
                         <span class="sidebar-info-label">EMAIL</span>
@@ -404,7 +406,7 @@
                 return;
             }
 
-            const words = ['CREATIVO', 'RESPONSABLE', 'PROACTIVO'];
+            const words = window._intro_words || ['CREATIVE', 'RESPONSIBLE', 'PROACTIVE'];
             let idx = 0;
 
             function showNextWord() {
@@ -468,19 +470,18 @@
         // About typewriter triggered on scroll
         const aboutSection = document.querySelector('.about-section');
         const aboutTarget = document.getElementById('typewriter-about');
-        let aboutTyped = false;
         const aboutObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !aboutTyped) {
-                    aboutTyped = true;
+                if (entry.isIntersecting && !window._aboutTyped) {
+                    window._aboutTyped = true;
                     aboutTarget.textContent = '';
-                    typeAbout(aboutTarget, 'Sobre mi.', 40, () => {
+                    typeAbout(aboutTarget, window._tw_about || 'About me.', 40, () => {
                         document.querySelectorAll('.about-body .slide-up-blur').forEach((el, i) => {
                             setTimeout(() => el.classList.add('visible'), i * 150);
                         });
                     });
-                } else if (!entry.isIntersecting && aboutTyped) {
-                    aboutTyped = false;
+                } else if (!entry.isIntersecting && window._aboutTyped) {
+                    window._aboutTyped = false;
                     aboutTarget.textContent = '';
                     document.querySelectorAll('.about-body .slide-up-blur').forEach(el => {
                         el.classList.remove('visible');
@@ -493,19 +494,18 @@
         // Typewriter for skills section
         const skillsSection = document.querySelector('.skills-section');
         const skillsTarget = document.getElementById('typewriter-skills');
-        let skillsTyped = false;
         const skillsObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !skillsTyped) {
-                    skillsTyped = true;
+                if (entry.isIntersecting && !window._skillsTyped) {
+                    window._skillsTyped = true;
                     skillsTarget.textContent = '';
-                    typeAbout(skillsTarget, 'Habilidades.', 40, () => {
+                    typeAbout(skillsTarget, window._tw_skills || 'Skills.', 40, () => {
                         document.querySelectorAll('.skills-body .slide-up-blur').forEach((el, i) => {
                             setTimeout(() => el.classList.add('visible'), i * 150);
                         });
                     });
-                } else if (!entry.isIntersecting && skillsTyped) {
-                    skillsTyped = false;
+                } else if (!entry.isIntersecting && window._skillsTyped) {
+                    window._skillsTyped = false;
                     skillsTarget.textContent = '';
                     document.querySelectorAll('.skills-body .slide-up-blur').forEach(el => {
                         el.classList.remove('visible');
@@ -518,19 +518,18 @@
         // Typewriter for experience section
         const expSection = document.querySelector('.experience-section');
         const expTarget = document.getElementById('typewriter-experience');
-        let expTyped = false;
         const expObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !expTyped) {
-                    expTyped = true;
+                if (entry.isIntersecting && !window._expTyped) {
+                    window._expTyped = true;
                     expTarget.textContent = '';
-                    typeAbout(expTarget, 'Mi experiencia.', 40, () => {
+                    typeAbout(expTarget, window._tw_experience || 'Experience.', 40, () => {
                         document.querySelectorAll('.experience-body .slide-up-blur').forEach((el, i) => {
                             setTimeout(() => el.classList.add('visible'), i * 150);
                         });
                     });
-                } else if (!entry.isIntersecting && expTyped) {
-                    expTyped = false;
+                } else if (!entry.isIntersecting && window._expTyped) {
+                    window._expTyped = false;
                     expTarget.textContent = '';
                     document.querySelectorAll('.experience-body .slide-up-blur').forEach(el => {
                         el.classList.remove('visible');
@@ -543,19 +542,18 @@
         // Typewriter for projects section
         const projSection = document.querySelector('.projects-section');
         const projTarget = document.getElementById('typewriter-projects');
-        let projTyped = false;
         const projObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !projTyped) {
-                    projTyped = true;
+                if (entry.isIntersecting && !window._projTyped) {
+                    window._projTyped = true;
                     projTarget.textContent = '';
-                    typeAbout(projTarget, 'Proyectos.', 40, () => {
+                    typeAbout(projTarget, window._tw_projects || 'Projects.', 40, () => {
                         document.querySelectorAll('.projects-body .slide-up-blur').forEach((el, i) => {
                             setTimeout(() => el.classList.add('visible'), i * 150);
                         });
                     });
-                } else if (!entry.isIntersecting && projTyped) {
-                    projTyped = false;
+                } else if (!entry.isIntersecting && window._projTyped) {
+                    window._projTyped = false;
                     projTarget.textContent = '';
                     document.querySelectorAll('.projects-body .slide-up-blur').forEach(el => {
                         el.classList.remove('visible');
@@ -568,19 +566,18 @@
         // Typewriter for contact section
         const contactSection = document.querySelector('.contact-section');
         const contactTarget = document.getElementById('typewriter-contact');
-        let contactTyped = false;
         const contactObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !contactTyped) {
-                    contactTyped = true;
+                if (entry.isIntersecting && !window._contactTyped) {
+                    window._contactTyped = true;
                     contactTarget.textContent = '';
-                    typeAbout(contactTarget, 'Contacto.', 40, () => {
+                    typeAbout(contactTarget, window._tw_contact || 'Contact.', 40, () => {
                         document.querySelectorAll('.contact-section .slide-up-blur').forEach((el, i) => {
                             setTimeout(() => el.classList.add('visible'), i * 150);
                         });
                     });
-                } else if (!entry.isIntersecting && contactTyped) {
-                    contactTyped = false;
+                } else if (!entry.isIntersecting && window._contactTyped) {
+                    window._contactTyped = false;
                     contactTarget.textContent = '';
                     document.querySelectorAll('.contact-section .slide-up-blur').forEach(el => {
                         el.classList.remove('visible');
