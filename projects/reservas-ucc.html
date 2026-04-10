@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic House — Juan Arrieta</title>
+    <title>Reservas UCC — Juan Arrieta</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
 
     <main class="project-detail">
         <header class="project-detail-header">
-            <h1 class="project-detail-title slide-up-blur">Comic House</h1>
-            <a href="https://github.com/Juan-Exe/Comic-House" target="_blank" class="project-detail-github slide-up-blur" style="transition-delay:0.1s;">
+            <h1 class="project-detail-title slide-up-blur">Reservas UCC</h1>
+            <a href="https://github.com/Juan-Exe/Resevas_Ucc" target="_blank" class="project-detail-github slide-up-blur" style="transition-delay:0.1s;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                 Ver en GitHub
             </a>
@@ -27,29 +27,21 @@
         <div class="project-detail-meta">
             <div class="project-meta-item slide-up-blur" style="transition-delay:0.15s;">
                 <span class="meta-label">Año</span>
-                <span class="meta-value">2024</span>
+                <span class="meta-value">2025</span>
             </div>
             <div class="project-meta-item slide-up-blur" style="transition-delay:0.25s;">
                 <span class="meta-label">Tecnologías</span>
-                <span class="meta-value">PHP 8.2, HTML, CSS, JavaScript, Tailwind CSS, Bootstrap Icons, Swiper.js, MariaDB 11.4, Docker, Apache</span>
+                <span class="meta-value">Node.js, Express, MariaDB, HTML, CSS, JavaScript, Docker</span>
             </div>
             <div class="project-meta-item slide-up-blur" style="transition-delay:0.35s;">
                 <span class="meta-label">Descripción</span>
-                <p class="meta-value">Una aplicación de <b>streaming de cómics</b> que permite a los usuarios <b>leer</b> sus cómics favoritos de manera sencilla y rápida. Hecho bajo <b>HTML</b>, <b>PHP</b> y <b>CSS</b>, Comic House permite buscar, leer y gestionar cómics de manera eficiente, utilizando una base de datos <b>MySQL</b> para gestionar los usuarios y los cómics disponibles.</p>
+                <p class="meta-value">Sistema de <b>reserva de espacios académicos</b> desarrollado para la <b>Universidad Cooperativa de Colombia</b>. Permite a estudiantes, docentes y administradores reservar aulas, auditorios, laboratorios y canchas deportivas. Cuenta con autenticación por <b>correo institucional</b> (@ucc.edu.co), control de acceso por <b>roles</b>, flujos de <b>aprobación administrativa</b>, recuperación de contraseña vía <b>Nodemailer</b> y despliegue <b>Dockerizado</b>.</p>
             </div>
         </div>
 
         <div class="project-detail-gallery">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE INICIO.png.png" alt="Comic House - Inicio" style="transition-delay:0.1s;">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE catalogo.jpg" alt="Comic House - Catálogo" style="transition-delay:0.2s;">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE comic.jpg" alt="Comic House - Comic" style="transition-delay:0.3s;">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE login.jpg" alt="Comic House - Login" style="transition-delay:0.4s;">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE register.jpg" alt="Comic House - Register" style="transition-delay:0.5s;">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE responsive.jpg" alt="Comic House - Responsive" style="transition-delay:0.6s;">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE responsive 2.jpg" alt="Comic House - Responsive 2" style="transition-delay:0.7s;">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE responsive 3.jpg" alt="Comic House - Responsive 3" style="transition-delay:0.8s;">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE responsive login.jpg" alt="Comic House - Responsive Login" style="transition-delay:0.9s;">
-            <img class="project-detail-img slide-up-blur" src="../img/COMIC HOUSE/COMIC HOUSE responsive register.jpg" alt="Comic House - Responsive Register" style="transition-delay:1s;">
+            <img class="project-detail-img slide-up-blur" src="../img/RESERVAS UCC/UCC 1.jpg" alt="Reservas UCC - Vista 1" style="transition-delay:0.1s;">
+            <img class="project-detail-img slide-up-blur" src="../img/RESERVAS UCC/UCC 2.jpg" alt="Reservas UCC - Vista 2" style="transition-delay:0.2s;">
         </div>
     </main>
 
@@ -58,7 +50,6 @@
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
                 entry.target.classList.add('visible');
-                // Animate once to avoid jumpy reverse-scroll behavior.
                 obs.unobserve(entry.target);
             });
         }, { threshold: 0.12 });
