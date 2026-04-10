@@ -35,6 +35,14 @@ const translations = {
         'proj-reservas-desc': 'Academic space reservation system for Universidad Cooperativa de Colombia. Manages classrooms, auditoriums, labs and courts with role-based access control.',
         'proj-frisby-desc': 'An interactive trivia application to test knowledge on music, film and pop culture, designed for streaming on OBS Studio.',
 
+        // Certs
+        'typewriter-certs-text': 'Certifications.',
+        'cert-english-title': 'English Certificate B1',
+        'cert-english-date': 'Dec 2021',
+        'cert-tech-title': 'Basic Programming',
+        'cert-tech-date': 'Aug 2025 · 159 hours',
+        'cert-download': 'Download',
+
         // Contact
         'typewriter-contact-text': 'Contact.',
         'contact-text': 'Have a project in mind or want to work together? Feel free to reach out.',
@@ -83,6 +91,14 @@ const translations = {
         'proj-justmusic-desc': 'Una aplicación de streaming de música cuyo concepto es ofrecer un espacio tanto para usuarios como para músicos, donde puedan compartir y descubrir nueva música.',
         'proj-reservas-desc': 'Sistema de reserva de espacios académicos para la Universidad Cooperativa de Colombia. Permite gestionar aulas, auditorios, laboratorios y canchas con control por roles.',
         'proj-frisby-desc': 'Una aplicación de trivia interactiva que permite poner a prueba conocimientos sobre música, cine y cultura pop, diseñada para transmisiones en OBS Studio.',
+
+        // Certs
+        'typewriter-certs-text': 'Certificados.',
+        'cert-english-title': 'Certificado de Inglés B1',
+        'cert-english-date': 'Dic 2021',
+        'cert-tech-title': 'Programación Nivel Básico',
+        'cert-tech-date': 'Ago 2025 · 159 horas',
+        'cert-download': 'Descargar',
 
         // Contact
         'typewriter-contact-text': 'Contacto.',
@@ -156,11 +172,18 @@ function applyLang(lang) {
     const cvValue = document.querySelector('.contact-item:nth-child(3) .contact-item-value');
     if (cvValue) cvValue.textContent = t['contact-label-cv-value'];
 
+    // Certs
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+    });
+
     // Store typewriter texts for use by the typewriter observers
     window._tw_about = t['typewriter-about-text'];
     window._tw_skills = t['typewriter-skills-text'];
     window._tw_experience = t['typewriter-experience-text'];
     window._tw_projects = t['typewriter-projects-text'];
+    window._tw_certs = t['typewriter-certs-text'];
     window._tw_contact = t['typewriter-contact-text'];
     window._intro_words = t['intro-words'];
 
@@ -173,9 +196,10 @@ function applyLang(lang) {
     window._skillsTyped = false;
     window._expTyped = false;
     window._projTyped = false;
+    window._certsTyped = false;
     window._contactTyped = false;
 
-    const ids = ['typewriter-about','typewriter-skills','typewriter-experience','typewriter-projects','typewriter-contact'];
+    const ids = ['typewriter-about','typewriter-skills','typewriter-experience','typewriter-projects','typewriter-certs','typewriter-contact'];
     ids.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.textContent = '';
@@ -209,6 +233,7 @@ window._tw_about = translations[_savedLang]['typewriter-about-text'];
 window._tw_skills = translations[_savedLang]['typewriter-skills-text'];
 window._tw_experience = translations[_savedLang]['typewriter-experience-text'];
 window._tw_projects = translations[_savedLang]['typewriter-projects-text'];
+window._tw_certs = translations[_savedLang]['typewriter-certs-text'];
 window._tw_contact = translations[_savedLang]['typewriter-contact-text'];
 currentLang = _savedLang;
 

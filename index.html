@@ -215,6 +215,55 @@
         </div>
     </section>
 
+    <section class="certs-section panel-section">
+        <div class="certs-header">
+            <h2><span id="typewriter-certs"></span><span class="typewriter-cursor">|</span></h2>
+            <div class="certs-line"></div>
+        </div>
+        <div class="certs-body">
+            <a href="Cert/Certificado Grown Ups.pdf" download class="cert-item slide-up-blur">
+                <div class="cert-left">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title" data-i18n="cert-english-title">Certificado de Inglés B1</h3>
+                        <span class="cert-date" data-i18n="cert-english-date">Dic 2021</span>
+                    </div>
+                </div>
+                <div class="cert-tags">
+                    <span class="cert-tag">Grown Ups</span>
+                    <span class="cert-tag">Universidad de Córdoba</span>
+                    <span class="cert-tag">B1</span>
+                </div>
+                <div class="cert-download">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span data-i18n="cert-download">Descargar</span>
+                </div>
+            </a>
+            <a href="Cert/Certificado Talento Tech.pdf" download class="cert-item slide-up-blur" style="transition-delay:0.15s;">
+                <div class="cert-left">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title" data-i18n="cert-tech-title">Programación Nivel Básico</h3>
+                        <span class="cert-date" data-i18n="cert-tech-date">Ago 2025 · 159 horas</span>
+                    </div>
+                </div>
+                <div class="cert-tags">
+                    <span class="cert-tag">Talento Tech</span>
+                    <span class="cert-tag">Univ. Tecnológica de Bolívar</span>
+                    <span class="cert-tag">159h</span>
+                </div>
+                <div class="cert-download">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span data-i18n="cert-download">Descargar</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
     <section class="contact-section panel-section">
         <div class="contact-header">
             <h2><span id="typewriter-contact"></span><span class="typewriter-cursor">|</span></h2>
@@ -559,6 +608,30 @@
             });
         }, { threshold: 0.15 });
         projObs.observe(projSection);
+
+        // Typewriter for certs section
+        const certsSection = document.querySelector('.certs-section');
+        const certsTarget = document.getElementById('typewriter-certs');
+        const certsObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !window._certsTyped) {
+                    window._certsTyped = true;
+                    certsTarget.textContent = '';
+                    typeAbout(certsTarget, window._tw_certs || 'Certifications.', 40, () => {
+                        document.querySelectorAll('.certs-body .slide-up-blur').forEach((el, i) => {
+                            setTimeout(() => el.classList.add('visible'), i * 150);
+                        });
+                    });
+                } else if (!entry.isIntersecting && window._certsTyped) {
+                    window._certsTyped = false;
+                    certsTarget.textContent = '';
+                    document.querySelectorAll('.certs-body .slide-up-blur').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                }
+            });
+        }, { threshold: 0.15 });
+        certsObs.observe(certsSection);
 
         // Typewriter for contact section
         const contactSection = document.querySelector('.contact-section');

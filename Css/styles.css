@@ -730,6 +730,147 @@ h2{
     box-shadow: 0 15px 50px rgba(0,0,0,0.6), 0 0 30px rgba(45, 212, 191, 0.15);
 }
 
+/* ===== CERTS SECTION ===== */
+
+.certs-section {
+    padding-top: clamp(72px, 9vh, 110px);
+    padding-bottom: clamp(72px, 9vh, 110px);
+}
+
+.certs-header {
+    margin-bottom: 40px;
+}
+
+.certs-header h2 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #fff;
+    margin: 0 0 12px 0;
+}
+
+.certs-line {
+    width: 100%;
+    height: 1px;
+    background: #404040;
+    margin-top: 8px;
+}
+
+.certs-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.cert-item {
+    display: grid;
+    grid-template-columns: 250px 1fr auto;
+    column-gap: 60px;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #2a2a2a;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.certs-body:hover .cert-item {
+    opacity: 0.3;
+}
+
+.certs-body:hover .cert-item:hover {
+    opacity: 1;
+}
+
+.cert-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cert-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2dd4bf;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.cert-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.cert-item:hover .cert-icon {
+    border-color: #2dd4bf;
+    background: rgba(45, 212, 191, 0.08);
+}
+
+.cert-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.cert-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+}
+
+.cert-issuer {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    margin: 0;
+    font-weight: 400;
+}
+
+.cert-date {
+    font-size: 0.78rem;
+    color: #2dd4bf;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.cert-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cert-tag {
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cert-download {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #b0b0b0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.cert-item:hover .cert-download {
+    color: #2dd4bf;
+}
+
 /* ===== CONTACT SECTION ===== */
 
 .contact-section {
@@ -1116,6 +1257,12 @@ h2{
     .experience-item {
         grid-template-columns: 1fr;
         gap: 15px;
+    }
+
+    /* Certs */
+    .cert-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .experience-company {
