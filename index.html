@@ -212,9 +212,6 @@
                     <span>Node.js</span><span>Express 5</span><span>MariaDB</span><span>Docker</span>
                 </div>
             </a>
-            <div class="project-preview-img">
-                <img id="project-hover-img" src="" alt="Preview">
-            </div>
         </div>
     </section>
 
@@ -587,35 +584,43 @@
         }, { threshold: 0.15 });
         contactObs.observe(contactSection);
 
-        // Project hover typewriter + image preview centered on active row
-        const previewContainer = document.querySelector('.project-preview-img');
-        const previewImg = document.getElementById('project-hover-img');
+        // Project hover: each row gets its own preview image inside itself
         let projectTypeTimer = null;
-        let activeRow = null;
-
-        function updatePreviewPosition() {
-            if (!activeRow) return;
-            const rowRect = activeRow.getBoundingClientRect();
-            const imgH = previewContainer.offsetHeight || 220;
-            const rowCenter = rowRect.top + rowRect.height / 2;
-            let top = rowCenter - imgH / 2;
-            // Clamp so it never goes off screen
-            const margin = 12;
-            top = Math.max(margin, Math.min(top, window.innerHeight - imgH - margin));
-            previewContainer.style.top = top + 'px';
-        }
-
-        document.addEventListener('mousemove', () => {
-            if (activeRow) updatePreviewPosition();
-        });
 
         document.querySelectorAll('.project-row').forEach(row => {
             const nameEl = row.querySelector('.project-name');
             const fullName = row.getAttribute('data-name');
-            row.addEventListener('mouseenter', () => {
-                activeRow = row;
+            const imgSrc = row.getAttribute('data-img');
+
+            // Create a dedicated preview img inside this row
+            const preview = document.createElement('div');
+            preview.className = 'project-preview-img';
+            preview.innerHTML = '<img src="" alt="Preview">';
+            row.appendChild(preview);
+            const previewImg = preview.querySelector('img');
+
+            function calcTop(clientY) {
+                const rowRect = row.getBoundingClientRect();
+                const imgH = preview.offsetHeight || 220;
+                let top = clientY - rowRect.top - imgH / 2;
+                return Math.max(0, Math.min(top, rowRect.height - imgH));
+            }
+
+            row.addEventListener('mouseenter', (e) => {
+                // Show image immediately at cursor position — no delay, no jump
+                if (imgSrc) {
+                    previewImg.src = imgSrc;
+                    preview.style.transition = 'none';
+                    preview.style.top = calcTop(e.clientY) + 'px';
+                    // Force reflow then re-enable transition for opacity
+                    preview.offsetHeight;
+                    preview.style.transition = 'opacity 0.3s ease';
+                    preview.classList.add('active');
+                }
+
                 nameEl.textContent = '';
                 let i = 0;
+                if (projectTypeTimer) clearInterval(projectTypeTimer);
                 projectTypeTimer = setInterval(() => {
                     if (i < fullName.length) {
                         nameEl.textContent += fullName[i];
@@ -623,23 +628,21 @@
                     } else {
                         clearInterval(projectTypeTimer);
                         projectTypeTimer = null;
-                        const imgSrc = row.getAttribute('data-img');
-                        if (imgSrc) {
-                            previewImg.src = imgSrc;
-                            previewContainer.classList.add('active');
-                            updatePreviewPosition();
-                        }
                     }
                 }, 60);
             });
+
+            row.addEventListener('mousemove', (e) => {
+                preview.style.top = calcTop(e.clientY) + 'px';
+            });
+
             row.addEventListener('mouseleave', () => {
-                activeRow = null;
                 if (projectTypeTimer) {
                     clearInterval(projectTypeTimer);
                     projectTypeTimer = null;
                 }
                 nameEl.textContent = fullName;
-                previewContainer.classList.remove('active');
+                preview.classList.remove('active');
             });
         });
     });
