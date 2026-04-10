@@ -587,16 +587,26 @@
         }, { threshold: 0.15 });
         contactObs.observe(contactSection);
 
-        // Project hover typewriter + image preview follows mouse
+        // Project hover typewriter + image preview centered on active row
         const previewContainer = document.querySelector('.project-preview-img');
         const previewImg = document.getElementById('project-hover-img');
         let projectTypeTimer = null;
         let activeRow = null;
 
-        document.addEventListener('mousemove', (e) => {
-            if (activeRow) {
-                previewContainer.style.top = e.clientY - 150 + 'px';
-            }
+        function updatePreviewPosition() {
+            if (!activeRow) return;
+            const rowRect = activeRow.getBoundingClientRect();
+            const imgH = previewContainer.offsetHeight || 220;
+            const rowCenter = rowRect.top + rowRect.height / 2;
+            let top = rowCenter - imgH / 2;
+            // Clamp so it never goes off screen
+            const margin = 12;
+            top = Math.max(margin, Math.min(top, window.innerHeight - imgH - margin));
+            previewContainer.style.top = top + 'px';
+        }
+
+        document.addEventListener('mousemove', () => {
+            if (activeRow) updatePreviewPosition();
         });
 
         document.querySelectorAll('.project-row').forEach(row => {
@@ -617,6 +627,7 @@
                         if (imgSrc) {
                             previewImg.src = imgSrc;
                             previewContainer.classList.add('active');
+                            updatePreviewPosition();
                         }
                     }
                 }, 60);
