@@ -8,31 +8,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Css/styles.css?v=1.1">
+    <link rel="stylesheet" href="Css/styles.css?v=1.8">
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="Js/i18n.js"></script>
 </head>
 
 <body>
     <canvas id="cyber-bg"></canvas>
-    <button id="lang-btn" onclick="toggleLang()" aria-label="Switch language">ES</button>
+    <button id="lang-btn" onclick="toggleLang()" aria-label="Cambiar idioma / Switch language">EN</button>
     <div id="intro-overlay" class="intro-overlay" aria-hidden="true">
         <span id="intro-word" class="intro-word">CREATIVE</span>
     </div>
     <section class="hero panel-section panel-hero">
         <div class="hero-content">
             <h1 class="hero-title"><span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
-            <p class="hero-desc hero-hidden">¡Hola! Soy <b>Juan Diego</b>. Estudiante de Ingeniería en Sistemas, <b>Desarrollador Full Stack</b> y <b>Diseñador UX/UI</b> con 3+ años de experiencia en desarrollo de aplicaciones, páginas web de alto rendimiento y sitios corporativos, con buen manejo del inglés y habilidades para crear prompts eficaces con IA usando Claude y Gemini.</p>
+            <p class="hero-desc hero-hidden">¡Hola! Soy <b>Juan Diego</b>. Estudiante de Ingeniería en Sistemas, <b>Desarrollador Full Stack</b> y <b>Administrador de TI</b> con 1 año de experiencia profesional y más de 4 años desarrollando. He construido y operado plataformas de <b>firma electrónica certificada</b> y <b>validación biométrica de identidad</b> en producción, bajo acreditación ONAC.</p>
             <a href="mailto:juandiegoarrietaherrera@gmail.com" class="hero-btn hero-hidden">CONTÁCTAME</a>
         </div>
         <div class="hero-stats hero-hidden">
-            <div class="hero-stat"><span class="hero-stat-number">1+</span><span class="hero-stat-label">Año de experiencia Laboral</span></div>
-            <div class="hero-stat"><span class="hero-stat-number">5+</span><span class="hero-stat-label">Proyectos terminados</span></div>
-            <div class="hero-stat"><span class="hero-stat-number">5K+</span><span class="hero-stat-label">Horas trabajadas</span></div>
+            <div class="hero-stat"><span class="hero-stat-number">1</span><span class="hero-stat-label">Año de experiencia laboral</span></div>
+            <div class="hero-stat"><span class="hero-stat-number">8+</span><span class="hero-stat-label">Proyectos terminados</span></div>
+            <div class="hero-stat"><span class="hero-stat-number">3</span><span class="hero-stat-label">Sistemas en producción</span></div>
         </div>
     </section>
-
-    <div id="project-popup" class="project-popup-overlay" style="display:none;"></div>
 
     <main class="main-content-full">
 
@@ -65,19 +63,15 @@
                 </div>
             </div>
             <div class="about-text slide-up-blur" style="transition-delay: 0.15s;">
-                    <p>¡Hola! Soy Juan Diego, estudiante de <b>Ingeniería en Sistemas</b> con 8 semestres concluidos. Me
-                        considero una persona proactiva, comprometida y responsable, con 4 años de experiencia en el
-                        desarrollo de aplicaciones y páginas web diseñadas y programadas por mí; utilizando herramientas de diseño como <b>Photoshop</b>, <b>Ilustrator</b> y <b>Figma</b> tambien desrrolando en diversos
-                        lenguajes como <b>JavaScript</b>, <b>TypeScript</b>, <b>C#</b>, <b>Python</b>, <b>Java</b> y <b>Ruby</b>, con experiencia en frameworks como <b>React</b>, <b>Next.js</b> y <b>Bootstrap</b>, además de manejar bases de datos
-                        relacionales y no relacionales como <b>MySQL</b>, <b>PostgreSQL</b> y <b>MariaDB</b>.</p>
-                    <p>Cuento con experiencia en administración de servidores <b>VPS</b> con proveedores como <b>IONOS</b>, <b>AWS</b> y <b>Hostinger</b>.
-                        También manejo contenedores con <b>Docker</b> para despliegue y entornos de desarrollo.
-                        Soy un apasionado por el aprendizaje continuo y el trabajo en equipo. He tenido la oportunidad
-                        de desempeñarme como ponente en el semillero <b>SECBI</b> de la <b>Universidad Cooperativa de Colombia</b>,
-                        donde he guiado a mis compañeros, transmitiendo conocimientos de manera clara y fomentando el
-                        crecimiento colectivo.</p>
-                    <p>La responsabilidad y el enfoque positivo son pilares que siempre aporto a cada proyecto en el
-                        que participo.</p>
+                    <p>¡Hola! Soy Juan Diego, estudiante de <b>Ingeniería en Sistemas</b> con 8 semestres concluidos.
+                        Me considero una persona proactiva, comprometida y responsable, con más de 4 años desarrollando
+                        aplicaciones y páginas web diseñadas y programadas por mí; utilizando herramientas de diseño como
+                        <b>Photoshop</b>, <b>Illustrator</b> y <b>Figma</b>, y desarrollando en diversos lenguajes como
+                        <b>JavaScript</b>, <b>TypeScript</b>, <b>C#</b>, <b>Python</b>, <b>Java</b> y <b>Ruby</b>, con
+                        experiencia en frameworks como <b>React</b>, <b>Next.js</b>, <b>Express</b> y <b>FastAPI</b>,
+                        además de manejar bases de datos como <b>MySQL</b>, <b>PostgreSQL</b>, <b>MariaDB</b> y <b>Redis</b>.</p>
+                    <p>Durante mi año en <b>PKI Services</b>, una Entidad de Certificación Digital acreditada ante <b>ONAC</b>, desarrollé y operé tres sistemas en producción: <b>FirmaLegal Online</b> (firma electrónica certificada), <b>Correo y SMS Certificado</b> con constancias firmadas mediante criptografía <b>PKI</b>, y <b>Validación de Identidad</b> con reconocimiento facial y OCR. Administré y endurecí dos servidores <b>Ubuntu</b> con <b>Docker</b>, <b>Nginx</b>, <b>WireGuard</b>, <b>UFW</b> y <b>Fail2Ban</b>, con despliegue continuo mediante <b>GitHub Actions</b> y rollback automático.</p>
+                    <p>Trabajo con evidencia medida: implementé análisis estático continuo con <b>SonarCloud</b> sobre los tres sistemas, llevando uno de <b>Security Rating E a A</b> con <b>86 pruebas automatizadas</b> en <b>Jest</b> y <b>Supertest</b>; y optimicé consultas hasta <b>161×</b> documentando cada mejora. También implementé el <b>gobierno de TI</b> de la organización sobre <b>ManageEngine Endpoint Central</b>, con políticas de control de dispositivos y EDR anti-ransomware. He sido <b>ponente</b> en el <b>XXI Encuentro EDESI 2026</b> de RedCOLSI, con distinción Sobresaliente.</p>
             </div>
         </div>
     </section>
@@ -97,6 +91,7 @@
                     <span class="skill-item">TypeScript</span>
                     <span class="skill-item">React</span>
                     <span class="skill-item">Next.js</span>
+                    <span class="skill-item">Tailwind</span>
                     <span class="skill-item">Bootstrap</span>
                 </div>
             </div>
@@ -104,12 +99,14 @@
                 <h3 class="skills-category-title">BACKEND</h3>
                 <div class="skills-list">
                     <span class="skill-item">Node.js</span>
-                    <span class="skill-item">Java</span>
-                    <span class="skill-item">Django</span>
-                    <span class="skill-item">Ruby on Rails</span>
+                    <span class="skill-item">Express</span>
                     <span class="skill-item">Python</span>
+                    <span class="skill-item">FastAPI</span>
+                    <span class="skill-item">Flask</span>
+                    <span class="skill-item">Django</span>
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">Ruby on Rails</span>
                     <span class="skill-item">PHP</span>
-                    <span class="skill-item">Ruby</span>
                     <span class="skill-item">C#</span>
                 </div>
             </div>
@@ -119,17 +116,45 @@
                     <span class="skill-item">MySQL</span>
                     <span class="skill-item">PostgreSQL</span>
                     <span class="skill-item">MariaDB</span>
+                    <span class="skill-item">DynamoDB</span>
+                    <span class="skill-item">Redis</span>
+                    <span class="skill-item">Sequelize</span>
                 </div>
             </div>
             <div class="skills-category slide-up-blur">
-                <h3 class="skills-category-title">TOOLS</h3>
+                <h3 class="skills-category-title">DEVOPS &amp; CLOUD</h3>
                 <div class="skills-list">
-                    <span class="skill-item">Git</span>
-                    <span class="skill-item">Figma</span>
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">Nginx</span>
                     <span class="skill-item">AWS</span>
+                    <span class="skill-item">GitHub Actions</span>
+                    <span class="skill-item">Linux</span>
+                    <span class="skill-item">Bash</span>
+                    <span class="skill-item">Git</span>
                     <span class="skill-item">IONOS</span>
                     <span class="skill-item">Hostinger</span>
-                    <span class="skill-item">Docker</span>
+                </div>
+            </div>
+            <div class="skills-category slide-up-blur">
+                <h3 class="skills-category-title">SECURITY &amp; QA</h3>
+                <div class="skills-list">
+                    <span class="skill-item">PKI</span>
+                    <span class="skill-item">X.509</span>
+                    <span class="skill-item">JWT</span>
+                    <span class="skill-item">WireGuard</span>
+                    <span class="skill-item">Fail2Ban</span>
+                    <span class="skill-item">SonarCloud</span>
+                    <span class="skill-item">Jest</span>
+                    <span class="skill-item">Vitest</span>
+                    <span class="skill-item">Playwright</span>
+                </div>
+            </div>
+            <div class="skills-category slide-up-blur">
+                <h3 class="skills-category-title">DESIGN &amp; AI</h3>
+                <div class="skills-list">
+                    <span class="skill-item">Figma</span>
+                    <span class="skill-item">Photoshop</span>
+                    <span class="skill-item">Illustrator</span>
                     <span class="skill-item">Claude</span>
                     <span class="skill-item">Gemini</span>
                 </div>
@@ -143,19 +168,67 @@
             <div class="experience-line"></div>
         </div>
         <div class="experience-body">
-            <div class="experience-item slide-up-blur">
+            <div class="experience-item slide-up-blur" data-exp="pki">
                 <div class="experience-left">
                     <h3 class="experience-company">PKI SERVICES</h3>
-                    <span class="experience-date">Ene 2025 — Presente</span>
+                    <span class="experience-date">Oct 2025 — Oct 2026</span>
                 </div>
                 <div class="experience-right">
-                    <h4 class="experience-role">Ingeniería y Desarrollo</h4>
+                    <h4 class="experience-role">Desarrollador Full Stack &amp; Administrador de TI</h4>
                     <div class="experience-tags">
-                        <span class="experience-tag">Frontend</span>
-                        <span class="experience-tag">Backend</span>
-                        <span class="experience-tag">Servidores</span>
+                        <span class="experience-tag">Full Stack</span>
+                        <span class="experience-tag">DevOps</span>
+                        <span class="experience-tag">Seguridad</span>
+                        <span class="experience-tag">PKI</span>
+                        <span class="experience-tag">Gobierno de TI</span>
                     </div>
-                    <p class="experience-detail">Se trabajaron proyectos como firmadores, validadores de identidad y soluciones de correo certificado, utilizando JavaScript, Next.js, Node.js, C# y Ruby.</p>
+                    <details class="experience-fold">
+                        <summary class="experience-summary"><span class="experience-summary-label" data-open="Ocultar detalle" data-closed="Ver detalle"></span><svg class="experience-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+                        <div class="experience-detail">
+                            <div class="experience-fold-inner">
+                                <p class="experience-intro">Desarrollo y operación de tres sistemas en producción para una Entidad de Certificación Digital acreditada ante ONAC (20-ECD-004), con responsabilidad completa sobre el ciclo: desarrollo, infraestructura, seguridad, calidad de código y despliegue.</p>
+                                <ul class="experience-systems">
+                                    <li><b>FirmaLegal Online</b> — Plataforma de firma electrónica certificada. Backend Node.js con MySQL y Redis, firma digital de PDF mediante certificados X.509, colas de trabajo con Bull y OTP por WhatsApp. Gestioné un despliegue de 1.271 firmantes para clientes institucionales.</li>
+                                    <li><b>Correo y SMS Certificado</b> — Plataforma de notificaciones con validez probatoria: 22 endpoints REST, constancias PDF firmadas con RSA/SHA-256, envío masivo certificado desde CSV e integración con SendGrid e Infobip, con webhooks de trazabilidad de entrega y apertura.</li>
+                                    <li><b>Validación de Identidad</b> — Verificación biométrica con reconocimiento facial y OCR de documentos. Microservicio Python con InsightFace, EasyOCR y Tesseract; 2.197 validaciones procesadas y recalibración de umbrales medida sobre 1.666 intentos reales.</li>
+                                    <li><b>Infraestructura y seguridad</b> — Administración y endurecimiento de dos servidores Ubuntu (IONOS y Hostinger): acceso exclusivo por llave Ed25519, VPN WireGuard, doble firewall con UFW, Fail2Ban y Cockpit restringido a la red privada. Homologué producción sin interrumpir el servicio.</li>
+                                    <li><b>Calidad con SonarCloud</b> — Análisis estático continuo sobre los tres sistemas. Elevé el Security Rating de <b>E a A</b>, resolví 21 hallazgos de seguridad e implementé <b>86 pruebas automatizadas</b> con Jest y Supertest, superando el 80% de cobertura con Quality Gate aprobado.</li>
+                                    <li><b>Gobierno de TI con Endpoint Central</b> — Implementación de ManageEngine Endpoint Central Cloud como consola de gestión unificada: políticas de control de dispositivos USB y ejecutables, EDR con anti-ransomware y gestión de incidentes verificada por firma digital y hash SHA-256.</li>
+                                    <li><b>Despliegue continuo</b> — Pipelines con GitHub Actions a dos entornos, con rollback automático, respaldo previo verificado y control de concurrencia. Elaboré 90 páginas de documentación técnica formal.</li>
+                                </ul>
+                                <p class="experience-stack"><strong>Stack:</strong> Node.js · Express · Next.js · Python · C# · Ruby · JavaScript · MySQL · MariaDB · Redis · Sequelize · Docker · Nginx · Linux · Bash · WireGuard · Fail2Ban · UFW · GitHub Actions · SonarCloud · Jest · Supertest · PKI · X.509 · JWT · bcrypt · SendGrid · Infobip · Twilio · PDFKit · InsightFace · EasyOCR · Tesseract</p>
+                            </div>
+                        
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div class="experience-item slide-up-blur" data-exp="secbi">
+                <div class="experience-left">
+                    <h3 class="experience-company">SEMILLERO SECBI</h3>
+                    <span class="experience-date">2023 — 2026</span>
+                </div>
+                <div class="experience-right">
+                    <h4 class="experience-role">Ponente y Líder Académico</h4>
+                    <div class="experience-tags">
+                        <span class="experience-tag">Investigación</span>
+                        <span class="experience-tag">Ponencia</span>
+                        <span class="experience-tag">Liderazgo</span>
+                    </div>
+                    <details class="experience-fold">
+                        <summary class="experience-summary"><span class="experience-summary-label" data-open="Ocultar detalle" data-closed="Ver detalle"></span><svg class="experience-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+                        <div class="experience-detail">
+                            <div class="experience-fold-inner">
+                                <p class="experience-intro">Semillero de investigación de la Universidad Cooperativa de Colombia, donde desarrollo mi trabajo de grado y comparto conocimiento técnico con mis compañeros.</p>
+                                <ul class="experience-systems">
+                                    <li><b>Ponente en el XXI Encuentro Departamental de Semilleros de Investigación EDESI 2026</b> — RedCOLSI Nodo Córdoba, con el proyecto «La gamificación y la inteligencia artificial (IA) como técnica para mejorar el aprendizaje». Distinción <b>Sobresaliente</b>.</li>
+                                    <li><b>Quiz Adventure</b> — Trabajo de grado con nivel de madurez tecnológica TRL 5: videojuego educativo para la preparación de las pruebas Saber Pro, desarrollado en el marco del semillero.</li>
+                                    <li>Transmisión de conocimientos técnicos de manera clara ante grupos de estudiantes, fomentando el crecimiento colectivo y el trabajo colaborativo.</li>
+                                </ul>
+                            </div>
+                        
+                        </div>
+                    </details>
                 </div>
             </div>
         </div>
@@ -167,16 +240,43 @@
             <div class="projects-line"></div>
         </div>
         <div class="projects-body">
-            <a href="projects/comic-house.html" class="project-row slide-up-blur" data-img="img/COMIC HOUSE/COMIC HOUSE INICIO.png.png" data-name="Comic House">
+            <a href="https://frisbyroll.vercel.app" target="_blank" rel="noopener" class="project-row slide-up-blur" data-name="Frisby Roll" data-proj="frisbyroll">
+                <div class="project-info">
+                    <h3 class="project-name">Frisby Roll</h3>
+                    <p class="project-desc">Aplicación web de fichas de rol de D&amp;D 5e en producción. Modela doce clases con sus subclases a lo largo de veinte niveles, con 279 pruebas automatizadas y una canalización en Python que extrae 761 entradas desde el manual en PDF.</p>
+                </div>
+                <div class="project-tags">
+                    <span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Supabase</span>
+                </div>
+            </a>
+            <a href="https://github.com/Juan-Exe/Quiz-Adventure" target="_blank" rel="noopener" class="project-row slide-up-blur" data-name="Quiz Adventure" data-proj="quiz">
+                <div class="project-info">
+                    <h3 class="project-name">Quiz Adventure</h3>
+                    <p class="project-desc">Trabajo de grado con nivel de madurez TRL 5 en el semillero SECBI: videojuego educativo para la preparación de las pruebas Saber Pro, con arquitectura cliente-servidor, panel web de administración y shaders GLSL propios.</p>
+                </div>
+                <div class="project-tags">
+                    <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Godot 4</span>
+                </div>
+            </a>
+            <div class="project-row project-row-static slide-up-blur" data-name="Infraestructura AWS" data-proj="aws">
+                <div class="project-info">
+                    <h3 class="project-name">Infraestructura AWS</h3>
+                    <p class="project-desc">Arquitectura completa sobre AWS para el curso de Computación en la Nube: VPC propia de 500 hosts con Internet Gateway, instancia EC2 con IP elástica sirviendo dos aplicaciones web mediante Nginx, siete tablas DynamoDB y una API serverless de carga segura con URLs pre-firmadas, donde el tipo y el tamaño viajan dentro de la firma criptográfica. Incluye apagado programado con Lambda y EventBridge, y roles IAM de permiso mínimo en lugar de credenciales embebidas.</p>
+                </div>
+                <div class="project-tags">
+                    <span>EC2</span><span>S3</span><span>Lambda</span><span>DynamoDB</span><span>API Gateway</span><span>IAM</span>
+                </div>
+            </div>
+            <a href="projects/comic-house.html" class="project-row slide-up-blur" data-img="img/COMIC HOUSE/COMIC HOUSE INICIO.png.png" data-name="Comic House" data-proj="comic">
                 <div class="project-info">
                     <h3 class="project-name">Comic House</h3>
-                    <p class="project-desc">Una aplicación de streaming de cómics que permite a los usuarios leer sus cómics favoritos, utilizando MySQL para gestionar los datos.</p>
+                    <p class="project-desc">Plataforma de lectura de cómics con procesamiento de archivos CBR/CBZ. Optimicé la carga de capítulos 71× y la consulta de lectura 161× con índices compuestos, documentando cada mejora con mediciones reproducibles.</p>
                 </div>
                 <div class="project-tags">
                     <span>PHP 8.2</span><span>Tailwind CSS</span><span>MariaDB</span><span>Docker</span>
                 </div>
             </a>
-            <a href="projects/prestige-barbers.html" class="project-row slide-up-blur" data-img="img/PRESTIGE BARBERS/P_B_1.png" data-name="Prestige Barbers">
+            <a href="projects/prestige-barbers.html" class="project-row slide-up-blur" data-img="img/PRESTIGE BARBERS/P_B_1.png" data-name="Prestige Barbers" data-proj="prestige">
                 <div class="project-info">
                     <h3 class="project-name">Prestige Barbers</h3>
                     <p class="project-desc">Plataforma digital de vanguardia para una barbería de lujo. Permite reservar turnos, explorar portafolios de barberos y adquirir productos capilares exclusivos.</p>
@@ -185,7 +285,7 @@
                     <span>Node.js</span><span>Express</span><span>MySQL</span><span>Docker</span>
                 </div>
             </a>
-            <a href="projects/just-music.html" class="project-row slide-up-blur" data-img="img/JUST MUSIC/JUST MUSIC INICIO.jpg" data-name="Just Music">
+            <a href="projects/just-music.html" class="project-row slide-up-blur" data-img="img/JUST MUSIC/JUST MUSIC INICIO.jpg" data-name="Just Music" data-proj="justmusic">
                 <div class="project-info">
                     <h3 class="project-name">Just Music</h3>
                     <p class="project-desc">Una aplicación de streaming de música cuyo concepto es ofrecer un espacio tanto para usuarios como para músicos, donde puedan compartir y descubrir nueva música.</p>
@@ -194,7 +294,7 @@
                     <span>Java</span>
                 </div>
             </a>
-            <a href="projects/reservas-ucc.html" class="project-row slide-up-blur" data-img="img/RESERVAS UCC/UCC 1.jpg" data-name="Reservas UCC">
+            <a href="projects/reservas-ucc.html" class="project-row slide-up-blur" data-img="img/RESERVAS UCC/UCC 1.jpg" data-name="Reservas UCC" data-proj="reservas">
                 <div class="project-info">
                     <h3 class="project-name">Reservas UCC</h3>
                     <p class="project-desc">Sistema de reserva de espacios académicos para la Universidad Cooperativa de Colombia. Permite gestionar aulas, auditorios, laboratorios y canchas con control por roles.</p>
@@ -203,7 +303,7 @@
                     <span>Node.js</span><span>Express</span><span>MariaDB</span><span>Docker</span>
                 </div>
             </a>
-            <a href="projects/frisby-trivia.html" class="project-row slide-up-blur" data-img="img/FRISBY TRIVIA/FRISBY TRIVIA INICIO.png" data-name="Frisby Trivia">
+            <a href="projects/frisby-trivia.html" class="project-row slide-up-blur" data-img="img/FRISBY TRIVIA/FRISBY TRIVIA INICIO.png" data-name="Frisby Trivia" data-proj="frisby">
                 <div class="project-info">
                     <h3 class="project-name">Frisby Trivia</h3>
                     <p class="project-desc">Una aplicación de trivia interactiva que permite poner a prueba conocimientos sobre música, cine y cultura pop, diseñada para transmisiones en OBS Studio.</p>
@@ -221,6 +321,26 @@
             <div class="certs-line"></div>
         </div>
         <div class="certs-body">
+            <a href="Cert/Certificado Ponente RedCOLSI.pdf" download class="cert-item slide-up-blur">
+                <div class="cert-left">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title" data-i18n="cert-ponente-title">Ponente · EDESI 2026</h3>
+                        <span class="cert-date" data-i18n="cert-ponente-date">May 2026 · Sobresaliente</span>
+                    </div>
+                </div>
+                <div class="cert-tags">
+                    <span class="cert-tag">RedCOLSI</span>
+                    <span class="cert-tag">Nodo Córdoba</span>
+                    <span class="cert-tag">Sobresaliente</span>
+                </div>
+                <div class="cert-download">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span data-i18n="cert-download">Descargar</span>
+                </div>
+            </a>
             <a href="Cert/Certificado Grown Ups.pdf" download class="cert-item slide-up-blur">
                 <div class="cert-left">
                     <div class="cert-icon">
@@ -309,7 +429,6 @@
     </section>
 
     </main>
-    <script src="Js/project-popup.js"></script>
     
     <script>
     // Cyber particle network background
@@ -401,6 +520,23 @@
     })();
 
     document.addEventListener('DOMContentLoaded', function() {
+        // Experience folds: on a device that can hover, the detail is revealed
+        // by hovering the item, and CSS collapses it with grid-template-rows.
+        // A closed <details> hides its content from rendering entirely, so the
+        // element must be left open there and let CSS do the collapsing.
+        // On touch there is no hover, so it stays a real tap-to-open disclosure.
+        (function setupExperienceFolds() {
+            const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+            function apply() {
+                document.querySelectorAll('.experience-fold').forEach(fold => {
+                    fold.open = canHover.matches;
+                });
+            }
+            apply();
+            // Re-apply if the capability changes (e.g. a tablet docked to a mouse).
+            if (canHover.addEventListener) canHover.addEventListener('change', apply);
+        })();
+
         // Typewriter for hero
         const lines = [
             { text: 'JUAN', cls: 'hero-highlight' },

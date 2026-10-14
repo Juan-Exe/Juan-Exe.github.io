@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(gh repo:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(git -C \"c:/Users/juand/Documents/JUAN DIEGO/PROYECTOS/Portfolio/Juan-Exe.github.io\" ls-files)",
+      "WebFetch(domain:juan-exe.github.io)"
     ]
   }
 }

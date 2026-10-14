@@ -5,7 +5,7 @@ const projectTranslations = {
         'label-year': 'Year',
         'label-tech': 'Technologies',
         'label-desc': 'Description',
-        'lang-btn': 'ES',
+        'lang-btn': 'EN',
 
         projects: {
             'comic-house': {
@@ -31,7 +31,7 @@ const projectTranslations = {
         'label-year': 'Año',
         'label-tech': 'Tecnologías',
         'label-desc': 'Descripción',
-        'lang-btn': 'EN',
+        'lang-btn': 'ES',
 
         projects: {
             'comic-house': {

@@ -244,7 +244,9 @@ h2{
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
-    overflow: hidden;
+    /* visible, not hidden: a panel whose content exceeds the viewport must grow
+       instead of clipping it (min-height sets the floor, never the ceiling). */
+    overflow: visible;
     opacity: 0.08;
     transform: translate3d(0, 52px, 0) scale(0.982);
     filter: blur(8px);
@@ -331,6 +333,9 @@ h2{
 .sidebar-photo {
     width: 160px;
     height: 160px;
+    /* border-box: without it the 4px border is added on top of the 160px box,
+       so the image overflows its own container by 4px and gets clipped. */
+    box-sizing: border-box;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
@@ -341,6 +346,9 @@ h2{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* block: an inline img carries a baseline gap that makes the container
+       scroll by a few px and clip the bottom of the circle. */
+    display: block;
 }
 
 .sidebar-name {
@@ -467,8 +475,9 @@ h2{
 .experience-item {
     display: grid;
     grid-template-columns: 250px 1fr;
-    column-gap: 200px;
+    column-gap: 120px;
     align-items: start;
+    padding-bottom: 20px;
 }
 
 .experience-left {
@@ -517,24 +526,180 @@ h2{
     letter-spacing: 0.5px;
 }
 
+/* Two behaviours from one markup, split by INPUT CAPABILITY, not screen width:
+   - pointer devices with hover (desktop): the detail opens on hover, as before,
+     and the summary button is hidden.
+   - touch devices: hover never fires, so the native <details> toggle is the
+     only way in and the summary button is shown.
+   A laptop with a touchscreen reports (hover: hover) and gets the desktop path,
+   where the <details> click still works as a fallback. */
+.experience-fold {
+    margin-top: 4px;
+}
+
+.experience-summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    list-style: none;
+    padding: 7px 14px;
+    border: 1px solid #2a2a2a;
+    border-radius: 999px;
+    color: #2dd4bf;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide the native disclosure triangle in all engines. */
+.experience-summary::-webkit-details-marker { display: none; }
+.experience-summary::marker { content: ''; }
+
+.experience-summary:hover,
+.experience-summary:focus-visible {
+    border-color: #2dd4bf;
+    background: rgba(45, 212, 191, 0.08);
+}
+
+.experience-summary:focus-visible {
+    outline: 2px solid #2dd4bf;
+    outline-offset: 3px;
+}
+
+.experience-chevron {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.experience-fold[open] .experience-chevron {
+    transform: rotate(180deg);
+}
+
+/* Swap the label text without JavaScript. */
+.experience-summary-label::before {
+    content: attr(data-closed);
+}
+
+.experience-fold[open] .experience-summary-label::before {
+    content: attr(data-open);
+}
+
 .experience-detail {
     max-width: 720px;
-    margin: 0;
+    margin: 18px 0 0;
     font-size: 0.95rem;
     line-height: 1.8;
     color: #9f9f9f;
-    opacity: 0;
-    transform: translateY(14px);
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.35s ease, transform 0.35s ease, max-height 0.35s ease;
+    animation: experience-unfold 0.4s cubic-bezier(.16, 1, .3, 1);
 }
 
-.experience-item:hover .experience-detail,
-.experience-item:focus-within .experience-detail {
-    opacity: 1;
-    transform: translateY(0);
-    max-height: 160px;
+.experience-intro {
+    margin: 0;
+}
+
+@keyframes experience-unfold {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Desktop (device can hover): restore the hover reveal ---- */
+@media (hover: hover) and (pointer: fine) {
+    /* Hidden and unclickable: the element stays open (set in JS) and CSS does
+       the collapsing, so a stray click must not toggle it shut. */
+    .experience-summary {
+        display: none;
+        pointer-events: none;
+    }
+
+    /* The <details> itself is the animated grid wrapper, so the whole detail
+       block counts as ONE row. grid-template-rows: 0fr -> 1fr animates to the
+       content's intrinsic height, so it is never clipped however long it grows
+       — the flaw the old max-height version had.
+       `details` must be display:grid for this; the summary is hidden here, so
+       the detail block is the only row. */
+    /* The detail itself is the collapsing grid: one row holding its own
+       content wrapper. 0fr -> 1fr animates to the content's intrinsic height,
+       so it is never clipped however long it grows — the flaw of max-height. */
+    .experience-fold > .experience-detail {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        margin-top: 0;
+        animation: none;
+        transition: grid-template-rows 0.42s cubic-bezier(.16, 1, .3, 1),
+                    opacity 0.3s ease,
+                    margin-top 0.42s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .experience-fold > .experience-detail > .experience-fold-inner {
+        overflow: hidden;
+        min-height: 0;
+    }
+
+    .experience-item:hover .experience-fold > .experience-detail,
+    .experience-item:focus-within .experience-fold > .experience-detail {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        margin-top: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .experience-detail { animation: none; }
+    .experience-chevron { transition: none; }
+}
+
+.experience-systems {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.experience-systems li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: #9f9f9f;
+}
+
+.experience-systems li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    background: #2dd4bf;
+    border-radius: 1px;
+}
+
+.experience-systems b {
+    color: #ddd;
+    font-weight: 600;
+}
+
+.experience-stack {
+    margin: 14px 0 0;
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: #6f6f6f;
+    letter-spacing: 0.3px;
+}
+
+.experience-stack strong {
+    color: #2dd4bf;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 /* ===== SKILLS SECTION ===== */
@@ -663,6 +828,15 @@ h2{
 
 .project-row:first-child {
     border-top: none;
+}
+
+/* Rows with no destination: keep the hover reveal, drop the click affordance. */
+.project-row-static {
+    cursor: default;
+}
+
+.project-row-static:hover .project-name {
+    color: #fff;
 }
 
 .project-info {
@@ -1113,6 +1287,15 @@ h2{
 
 /* Legacy 1673px breakpoint removed — old classes no longer used */
 
+/* Tablets and narrow laptops: the 120px column gap starves the text column
+   long before the 768px stacking breakpoint. */
+@media (max-width: 1100px) {
+    .experience-item {
+        grid-template-columns: 200px 1fr;
+        column-gap: 50px;
+    }
+}
+
 @media (max-width: 768px) {
 
     .intro-word {
@@ -1269,10 +1452,69 @@ h2{
         font-size: 1.2rem;
     }
 
+    /* Was 50x28 and overflowed the right edge at 320-360px. */
+    #lang-btn {
+        top: 12px;
+        right: 12px;
+        min-width: 46px;
+        min-height: 44px;
+        padding: 6px 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-btn {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 160px box around a 164px image clipped the photo. */
+    .sidebar-photo {
+        width: 150px;
+        height: 150px;
+        min-width: 150px;
+    }
+
+    /* 18px tall link is below the touch minimum. */
+    .sidebar-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 4px 0;
+    }
+
+    .contact-item {
+        min-height: 46px;
+    }
+
     .experience-detail {
-        opacity: 1;
-        transform: none;
-        max-height: none;
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-top: 14px;
+    }
+
+    .experience-systems li {
+        font-size: 0.88rem;
+        padding-left: 16px;
+    }
+
+    .experience-stack {
+        font-size: 0.8rem;
+        line-height: 1.8;
+    }
+
+    /* Full-width tap target, at or above the 44px touch minimum. */
+    .experience-summary {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 46px;
+        padding: 13px 16px;
+        font-size: 0.78rem;
     }
 
     /* Projects */
@@ -1292,12 +1534,18 @@ h2{
         font-size: 0.85rem;
     }
 
+    /* flex-shrink:0 with no wrap pushed these past the viewport on narrow
+       phones and caused horizontal page scroll. */
     .project-tags {
         margin-left: 0;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        max-width: 100%;
     }
 
     .project-tags span {
         font-size: 0.8rem;
+        letter-spacing: 0.5px;
     }
 
     .project-preview-img {
@@ -1372,6 +1620,45 @@ h2{
     .projects-header h2,
     .contact-header h2 {
         font-size: 1.3rem;
+    }
+
+    /* 320-360px: the tightest real phones. */
+    .panel-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .project-tags span,
+    .experience-tag {
+        font-size: 0.72rem;
+    }
+
+    .experience-company {
+        font-size: 1.05rem;
+        letter-spacing: 1.5px;
+    }
+
+    .experience-role {
+        font-size: 0.98rem;
+    }
+
+    .experience-systems li {
+        font-size: 0.84rem;
+        line-height: 1.6;
+    }
+
+    .experience-stack {
+        font-size: 0.74rem;
+    }
+
+    .sidebar-info-value {
+        font-size: 0.8rem;
+        word-break: break-word;
+    }
+
+    .cert-tags {
+        flex-wrap: wrap;
+        gap: 6px;
     }
 }
 
