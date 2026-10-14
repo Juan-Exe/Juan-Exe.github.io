@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Css/styles.css?v=1.9">
+    <link rel="stylesheet" href="Css/styles.css?v=2.1">
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="Js/i18n.js"></script>
 </head>
@@ -520,23 +520,6 @@
     })();
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Experience folds: on a device that can hover, the detail is revealed
-        // by hovering the item, and CSS collapses it with grid-template-rows.
-        // A closed <details> hides its content from rendering entirely, so the
-        // element must be left open there and let CSS do the collapsing.
-        // On touch there is no hover, so it stays a real tap-to-open disclosure.
-        (function setupExperienceFolds() {
-            const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
-            function apply() {
-                document.querySelectorAll('.experience-fold').forEach(fold => {
-                    fold.open = canHover.matches;
-                });
-            }
-            apply();
-            // Re-apply if the capability changes (e.g. a tablet docked to a mouse).
-            if (canHover.addEventListener) canHover.addEventListener('change', apply);
-        })();
-
         // Typewriter for hero
         const lines = [
             { text: 'JUAN', cls: 'hero-highlight' },

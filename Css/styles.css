@@ -532,15 +532,18 @@ h2{
     letter-spacing: 0.5px;
 }
 
-/* Two behaviours from one markup, split by INPUT CAPABILITY, not screen width:
-   - pointer devices with hover (desktop): the detail opens on hover, as before,
-     and the summary button is hidden.
-   - touch devices: hover never fires, so the native <details> toggle is the
-     only way in and the summary button is shown.
-   A laptop with a touchscreen reports (hover: hover) and gets the desktop path,
-   where the <details> click still works as a fallback. */
+/* One behaviour everywhere: a native <details> disclosure, opened by clicking
+   or tapping the "Ver detalle" button. No hover variant — a visible control
+   tells the reader the content is there, and works identically on every device
+   with no JavaScript. */
 .experience-fold {
     margin-top: 4px;
+}
+
+/* Belt and braces: a closed <details> should not render its content, but the
+   unfold animation on the child can keep it laid out in some engines. */
+.experience-fold:not([open]) > .experience-detail {
+    display: none;
 }
 
 .experience-summary {
@@ -612,48 +615,6 @@ h2{
 @keyframes experience-unfold {
     from { opacity: 0; transform: translateY(-8px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---- Desktop (device can hover): restore the hover reveal ---- */
-@media (hover: hover) and (pointer: fine) {
-    /* Hidden and unclickable: the element stays open (set in JS) and CSS does
-       the collapsing, so a stray click must not toggle it shut. */
-    .experience-summary {
-        display: none;
-        pointer-events: none;
-    }
-
-    /* The <details> itself is the animated grid wrapper, so the whole detail
-       block counts as ONE row. grid-template-rows: 0fr -> 1fr animates to the
-       content's intrinsic height, so it is never clipped however long it grows
-       — the flaw the old max-height version had.
-       `details` must be display:grid for this; the summary is hidden here, so
-       the detail block is the only row. */
-    /* The detail itself is the collapsing grid: one row holding its own
-       content wrapper. 0fr -> 1fr animates to the content's intrinsic height,
-       so it is never clipped however long it grows — the flaw of max-height. */
-    .experience-fold > .experience-detail {
-        display: grid;
-        grid-template-rows: 0fr;
-        opacity: 0;
-        margin-top: 0;
-        animation: none;
-        transition: grid-template-rows 0.42s cubic-bezier(.16, 1, .3, 1),
-                    opacity 0.3s ease,
-                    margin-top 0.42s cubic-bezier(.16, 1, .3, 1);
-    }
-
-    .experience-fold > .experience-detail > .experience-fold-inner {
-        overflow: hidden;
-        min-height: 0;
-    }
-
-    .experience-item:hover .experience-fold > .experience-detail,
-    .experience-item:focus-within .experience-fold > .experience-detail {
-        grid-template-rows: 1fr;
-        opacity: 1;
-        margin-top: 18px;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
