@@ -315,7 +315,10 @@ h2{
 .about-body {
     display: flex;
     gap: 50px;
-    align-items: flex-start;
+    /* stretch, not flex-start: the divider is .about-card's border-right, and
+       with flex-start the card only grows to its own content height, so the
+       line stopped short of the text column. */
+    align-items: stretch;
 }
 
 /* Card inside about */
@@ -327,6 +330,9 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* The card now stretches to the row height, so keep its content pinned to
+       the top instead of letting it centre in the taller box. */
+    justify-content: flex-start;
     border-right: 2px solid #333;
 }
 
