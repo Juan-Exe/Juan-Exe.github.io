@@ -45,6 +45,8 @@ const translations = {
 
         // Certs
         'typewriter-certs-text': 'Certifications.',
+        'cert-laboral-title': 'Employment Certificate',
+        'cert-laboral-date': 'Oct 2025 — Oct 2026 · 1 year',
         'cert-ponente-title': 'Speaker · EDESI 2026',
         'cert-ponente-date': 'May 2026 · Outstanding',
         'cert-english-title': 'English Certificate B1',
@@ -112,6 +114,8 @@ const translations = {
 
         // Certs
         'typewriter-certs-text': 'Certificados.',
+        'cert-laboral-title': 'Certificación Laboral',
+        'cert-laboral-date': 'Oct 2025 — Oct 2026 · 1 año',
         'cert-ponente-title': 'Ponente · EDESI 2026',
         'cert-ponente-date': 'May 2026 · Sobresaliente',
         'cert-english-title': 'Certificado de Inglés B1',
