@@ -355,6 +355,14 @@ h2{
     /* block: an inline img carries a baseline gap that makes the container
        scroll by a few px and clip the bottom of the circle. */
     display: block;
+    /* The browser still scales the 320px source down to 160; asking for
+       high quality keeps the glasses and hair from looking jagged. */
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Promotes the image to its own layer, so the circular clip is
+       composited with antialiasing instead of a hard pixel edge. */
+    transform: translateZ(0);
 }
 
 .sidebar-name {

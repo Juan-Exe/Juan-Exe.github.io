@@ -2,12 +2,46 @@ const projectTranslations = {
     en: {
         'back-link': '← Back',
         'github-btn': 'View on GitHub',
+        'live-btn': 'View live',
         'label-year': 'Year',
         'label-tech': 'Technologies',
         'label-desc': 'Description',
         'lang-btn': 'EN',
 
         projects: {
+            'frisby-roll': {
+                desc: 'Web application <b>in production</b> for creating and managing <b>D&amp;D 5th edition</b> character sheets in Spanish. It models twelve classes with their subclasses across twenty levels, and does the arithmetic for the player so they do not have to know the rules by heart.',
+                sections: [
+                    {
+                        title: 'The problem',
+                        paragraphs: [
+                            'A D&amp;D character sheet is a spreadsheet in disguise: every ability modifier, armour class, hit point total and proficiency bonus depends on the others and shifts with every level. Newcomers spend more time reconciling numbers than playing.',
+                            'Frisby Roll turns the sheet into an <b>eight-step wizard</b> \u2014 race, class, ability scores, background, personality, skills, equipment and name \u2014 where each choice recalculates the rest. The player decides who they want to be; the application handles the arithmetic.',
+                        ],
+                    },
+                    {
+                        title: 'The content',
+                        paragraphs: [
+                            'The challenge was not the interface but the data: the rules live in a PDF manual hundreds of pages long. I wrote a <b>Python pipeline</b> that extracts <b>761 entries</b> \u2014 races, classes, subclasses, backgrounds, spells and equipment \u2014 and normalises them into the PostgreSQL schema.',
+                            'Transcribing that by hand would have taken weeks and introduced silent errors: a mistyped modifier goes unnoticed until someone plays with a wrong sheet.',
+                        ],
+                    },
+                    {
+                        title: 'Trusting the numbers',
+                        paragraphs: [
+                            'An application that does the maths for you is only useful if it is always right. Hence <b>279 automated tests</b>, with <b>Vitest</b> for the rules logic and <b>Playwright</b> for the full character-creation journeys.',
+                            'The tests cover the cases a player would otherwise discover the hard way: proficiency progression on level-up, hit dice per class, and subclasses that override base rules.',
+                        ],
+                    },
+                    {
+                        title: 'Architecture',
+                        paragraphs: [
+                            'Built with <b>Next.js 16</b> and <b>React 19</b> in <b>TypeScript</b>, with <b>PostgreSQL</b> on <b>Supabase</b> and deployed to <b>Vercel</b>. Strict typing is not decorative here: in a domain where a property may be a number, a die or a formula, the compiler catches mistakes before they reach the table.',
+                            'Each player edits their own sheet while the dungeon master sees the state of the whole table, so state syncs live rather than living only in the browser.',
+                        ],
+                    },
+                ],
+            },
             'quiz-adventure': {
                 desc: 'Educational video game for <b>Saber Pro</b> exam preparation, developed as a <b>degree project</b> in the SECBI research group at <b>TRL 5</b> technology readiness level. It was presented as a paper at the XXI EDESI 2026 meeting of RedCOLSI, where it received an Outstanding distinction.',
                 sections: [
@@ -114,12 +148,46 @@ const projectTranslations = {
     es: {
         'back-link': '← Volver',
         'github-btn': 'Ver en GitHub',
+        'live-btn': 'Ver en producción',
         'label-year': 'Año',
         'label-tech': 'Tecnologías',
         'label-desc': 'Descripción',
         'lang-btn': 'ES',
 
         projects: {
+            'frisby-roll': {
+                desc: 'Aplicaci\u00f3n web <b>en producci\u00f3n</b> para crear y gestionar fichas de personaje de <b>D&amp;D 5.\u00aa edici\u00f3n</b> en espa\u00f1ol. Modela doce clases con sus subclases a lo largo de veinte niveles, y hace las cuentas por el jugador para que no tenga que saberse las reglas de memoria.',
+                sections: [
+                    {
+                        title: 'El problema',
+                        paragraphs: [
+                            'Una ficha de D&amp;D es una hoja de c\u00e1lculo disfrazada: el modificador de cada caracter\u00edstica, la clase de armadura, los puntos de golpe y la competencia dependen unos de otros y cambian con cada nivel. Quien empieza a jugar dedica m\u00e1s tiempo a cuadrar n\u00fameros que a jugar.',
+                            'Frisby Roll resuelve la ficha como un <b>asistente de ocho pasos</b> \u2014raza, clase, caracter\u00edsticas, trasfondo, personalidad, habilidades, equipo y nombre\u2014 donde cada decisi\u00f3n recalcula el resto. El jugador elige qu\u00e9 quiere ser; la aplicaci\u00f3n se encarga de la aritm\u00e9tica.',
+                        ],
+                    },
+                    {
+                        title: 'El contenido',
+                        paragraphs: [
+                            'El reto no era la interfaz sino los datos: las reglas viven en un manual en PDF de cientos de p\u00e1ginas. Escrib\u00ed una <b>canalizaci\u00f3n en Python</b> que extrae <b>761 entradas</b> \u2014razas, clases, subclases, trasfondos, conjuros y equipo\u2014 y las normaliza en el esquema de PostgreSQL.',
+                            'Transcribir eso a mano habr\u00eda tomado semanas y habr\u00eda introducido errores silenciosos: un modificador mal copiado no se nota hasta que alguien juega con una ficha incorrecta.',
+                        ],
+                    },
+                    {
+                        title: 'Confianza en los n\u00fameros',
+                        paragraphs: [
+                            'Una aplicaci\u00f3n que calcula por ti solo sirve si acierta siempre. Por eso tiene <b>279 pruebas automatizadas</b> con <b>Vitest</b> para la l\u00f3gica de reglas y <b>Playwright</b> para los recorridos completos de creaci\u00f3n de personaje.',
+                            'Las pruebas cubren los casos que un jugador descubrir\u00eda de la peor forma: la progresi\u00f3n de competencia al subir de nivel, los dados de golpe por clase, y las subclases que modifican reglas base.',
+                        ],
+                    },
+                    {
+                        title: 'Arquitectura',
+                        paragraphs: [
+                            'Construida con <b>Next.js 16</b> y <b>React 19</b> en <b>TypeScript</b>, con <b>PostgreSQL</b> sobre <b>Supabase</b> y desplegada en <b>Vercel</b>. El tipado estricto no es decorativo: en un dominio donde una propiedad puede ser un n\u00famero, un dado o una f\u00f3rmula, el compilador atrapa los errores antes de que lleguen a la mesa de juego.',
+                            'Cada jugador edita su ficha y el m\u00e1ster ve el estado de toda la mesa, as\u00ed que el estado se sincroniza en vivo en lugar de guardarse solo en el navegador.',
+                        ],
+                    },
+                ],
+            },
             'quiz-adventure': {
                 desc: 'Videojuego educativo para la preparaci\u00f3n de las pruebas <b>Saber Pro</b>, desarrollado como <b>trabajo de grado</b> en el Semillero SECBI con un nivel de madurez tecnol\u00f3gica <b>TRL 5</b>. Fue presentado como ponencia en el XXI Encuentro EDESI 2026 de RedCOLSI, donde obtuvo distinci\u00f3n Sobresaliente.',
                 sections: [
@@ -233,6 +301,7 @@ function getProjectKey() {
     if (path.includes('just-music')) return 'just-music';
     if (path.includes('reservas-ucc')) return 'reservas-ucc';
     if (path.includes('frisby-trivia')) return 'frisby-trivia';
+    if (path.includes('frisby-roll')) return 'frisby-roll';
     if (path.includes('quiz-adventure')) return 'quiz-adventure';
     if (path.includes('data-warehouse')) return 'data-warehouse';
     if (path.includes('infraestructura-aws')) return 'infraestructura-aws';
@@ -252,7 +321,10 @@ function applyProjectLang(lang) {
     if (githubBtn) {
         // Keep the SVG, only update the text node
         const textNode = Array.from(githubBtn.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
-        if (textNode) textNode.textContent = ' ' + t['github-btn'];
+        // A project with no public repo links to the deployed app
+        // instead, and the label has to say so.
+        const esRepo = (githubBtn.getAttribute('href') || '').includes('github.com');
+        if (textNode) textNode.textContent = ' ' + t[esRepo ? 'github-btn' : 'live-btn'];
     }
 
     // Meta labels

@@ -43,7 +43,15 @@
         <div class="about-body">
             <div class="about-card slide-up-blur">
                 <div class="sidebar-photo">
-                    <img src="img/Yo.png" alt="Juan Diego Arrieta">
+                    <!-- Servida al tamano en que se pinta. El original de
+                         1280px reducido a 160 por el navegador se veia
+                         dentado: en una sola pasada no filtra bien.
+                         Descriptores de densidad (x) y no de ancho (w),
+                         porque el circulo tiene un tamano fijo: asi una
+                         pantalla 2x recibe el doble de pixeles reales. -->
+                    <img src="img/Yo-320.png"
+                         srcset="img/Yo-320.png 2x, img/Yo-480.png 3x"
+                         alt="Juan Diego Arrieta">
                 </div>
                 <h3 class="sidebar-name">Juan Diego Arrieta</h3>
                 <span class="sidebar-role">Ing. en Sistemas · Full Stack · UX/UI</span>
@@ -257,7 +265,7 @@
             <div class="projects-line"></div>
         </div>
         <div class="projects-body">
-            <a href="https://frisbyroll.vercel.app" target="_blank" rel="noopener" class="project-row slide-up-blur" data-img="img/FRISBY ROLL/frisbyroll-inicio.png" data-name="Frisby Roll" data-proj="frisbyroll">
+            <a href="projects/frisby-roll.html" class="project-row slide-up-blur" data-img="img/FRISBY ROLL/01-portada.png" data-name="Frisby Roll" data-proj="frisbyroll">
                 <div class="project-info">
                     <h3 class="project-name">Frisby Roll</h3>
                     <p class="project-desc">Aplicación web de fichas de rol de D&amp;D 5e en producción. Modela doce clases con sus subclases a lo largo de veinte niveles, con 279 pruebas automatizadas y una canalización en Python que extrae 761 entradas desde el manual en PDF.</p>
