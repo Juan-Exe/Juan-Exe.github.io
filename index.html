@@ -661,6 +661,10 @@
             t();
         }
 
+        // i18n.js needs it to retype the headings after a language switch,
+        // and this script runs inside a closure.
+        window.typeAbout = typeAbout;
+
         // Observer for slide-up-blur and fade-in elements
         // Exclude elements inside typewriter-controlled sections
         const typewriterSections = ['.about-section', '.skills-section', '.experience-section', '.projects-section', '.contact-section'];

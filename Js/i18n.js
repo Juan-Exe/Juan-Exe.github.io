@@ -251,9 +251,59 @@ function applyLang(lang) {
     });
     document.querySelectorAll('.contact-section .slide-up-blur').forEach(el => el.classList.remove('visible'));
 
+    // Whatever is on screen right now has to be shown again by hand.
+    // The observers that normally reveal a section only fire when it
+    // crosses the viewport edge, so a section the reader is already
+    // looking at would stay hidden until they scrolled away and back.
+    replayVisibleSections();
+
     currentLang = lang;
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
+}
+
+/**
+ * Re-reveals the sections that are on screen after a language switch.
+ *
+ * Each section is described by the element that scrolls into view, the
+ * container whose children fade in, the typewriter heading and the flag
+ * the observer uses to avoid re-typing. On a language change the flags
+ * are cleared and the children hidden; for sections off screen that is
+ * exactly right, because the observer will replay them on the way back.
+ * For the section being read it is not, so it is replayed here.
+ */
+function replayVisibleSections() {
+    const SECTIONS = [
+        { section: '.about-section',      body: '.about-body',      heading: 'typewriter-about',      flag: '_aboutTyped',   text: '_tw_about' },
+        { section: '.skills-section',     body: '.skills-body',     heading: 'typewriter-skills',     flag: '_skillsTyped',  text: '_tw_skills' },
+        { section: '.experience-section', body: '.experience-body', heading: 'typewriter-experience', flag: '_expTyped',     text: '_tw_experience' },
+        { section: '.projects-section',   body: '.projects-body',   heading: 'typewriter-projects',   flag: '_projTyped',    text: '_tw_projects' },
+        { section: '.certs-section',      body: '.certs-body',      heading: 'typewriter-certs',      flag: '_certsTyped',   text: '_tw_certs' },
+        { section: '.contact-section',    body: '.contact-section', heading: 'typewriter-contact',    flag: '_contactTyped', text: '_tw_contact' },
+    ];
+
+    SECTIONS.forEach(cfg => {
+        const section = document.querySelector(cfg.section);
+        if (!section) return;
+
+        const box = section.getBoundingClientRect();
+        const onScreen = box.top < window.innerHeight && box.bottom > 0;
+        if (!onScreen) return;
+
+        // Retype the heading in the new language. typeAbout lives inside
+        // the page's own closure and is published on window for this.
+        const heading = document.getElementById(cfg.heading);
+        if (heading && typeof window.typeAbout === 'function') {
+            window[cfg.flag] = true;
+            heading.textContent = '';
+            window.typeAbout(heading, window[cfg.text] || '', 40);
+        }
+
+        // Bring the body back, keeping the staggered feel.
+        document.querySelectorAll(cfg.body + ' .slide-up-blur').forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), i * 150);
+        });
+    });
 }
 
 function toggleLang() {
