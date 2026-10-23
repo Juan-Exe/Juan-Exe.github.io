@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Adventure — Juan Arrieta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/styles.css?v=2.1">
+    <link rel="stylesheet" href="../Css/project-detail.css">
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="../Js/i18n-project.js"></script>
+</head>
+<body>
+    <canvas id="cyber-bg"></canvas>
+    <button id="lang-btn" onclick="toggleProjectLang()" aria-label="Cambiar idioma / Switch language">EN</button>
+    <a href="../index.html" class="back-link">← Volver</a>
+
+    <main class="project-detail">
+        <header class="project-detail-header">
+            <h1 class="project-detail-title slide-up-blur">Quiz Adventure</h1>
+            <a href="https://github.com/Juan-Exe/Quiz-Adventure" target="_blank" class="project-detail-github slide-up-blur" style="transition-delay:0.1s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                Ver en GitHub
+            </a>
+        </header>
+
+        <div class="project-detail-meta">
+            <div class="project-meta-item slide-up-blur" style="transition-delay:0.15s;">
+                <span class="meta-label">Año</span>
+                <span class="meta-value">2026</span>
+            </div>
+            <div class="project-meta-item slide-up-blur" style="transition-delay:0.25s;">
+                <span class="meta-label">Tecnologías</span>
+                <span class="meta-value">Python, FastAPI, SQLAlchemy, PostgreSQL, Docker, Godot 4, GDScript, GLSL</span>
+            </div>
+            <div class="project-meta-item slide-up-blur" style="transition-delay:0.35s;">
+                <span class="meta-label">Descripción</span>
+                <p class="meta-value">Videojuego educativo para la preparación de las pruebas <b>Saber Pro</b>, desarrollado como <b>trabajo de grado</b> en el Semillero SECBI con un nivel de madurez tecnológica <b>TRL 5</b>. Fue presentado como ponencia en el XXI Encuentro EDESI 2026 de RedCOLSI, donde obtuvo distinción Sobresaliente.</p>
+            </div>
+        </div>
+
+        <section class="project-detail-section slide-up-blur">
+            <h2 class="project-section-title">La idea</h2>
+            <p class="project-section-text">Estudiar para una prueba estandarizada es tedioso, y el abandono es alto. Quiz Adventure convierte ese estudio en un <b>combate por turnos</b>: cada pregunta es un ataque. Si el estudiante responde bien, golpea al enemigo; si falla, pierde un corazón. La mecánica sostiene la atención donde un cuestionario plano la pierde.</p>
+        </section>
+
+        <div class="project-detail-gallery">
+            <img class="project-detail-img slide-up-blur" src="../img/QUIZ/01-prototipo-conceptual.png" alt="Prototipo conceptual: planteamiento inicial de la pantalla de combate">
+            <img class="project-detail-img slide-up-blur" src="../img/QUIZ/02-combate.png" alt="Pantalla de combate: enunciado, cuatro opciones, vidas y enemigo esqueleto">
+            <img class="project-detail-img slide-up-blur" src="../img/QUIZ/03-preguntas.png" alt="Prototipo con el sistema de preguntas integrado en el combate">
+        </div>
+
+        <section class="project-detail-section slide-up-blur">
+            <h2 class="project-section-title">Arquitectura</h2>
+            <p class="project-section-text">El sistema es <b>cliente-servidor desacoplado</b>: el juego corre en <b>Godot 4</b> con GDScript, y el backend es una API REST de <b>siete endpoints</b> en <b>FastAPI</b> con SQLAlchemy sobre PostgreSQL, todo contenedorizado con Docker.</p>
+            <p class="project-section-text">La decisión de diseño que define el proyecto: <b>la respuesta correcta nunca viaja al cliente</b>. El juego recibe el enunciado y las opciones, pero la validación ocurre en el servidor. Si la respuesta correcta se enviara junto con la pregunta, bastaría con inspeccionar el tráfico o la memoria del proceso para hacer trampa, y la herramienta perdería todo valor como instrumento de evaluación.</p>
+            <p class="project-section-text">Completa el sistema un <b>panel web de administración</b> para gestionar el banco de preguntas sin tocar la base de datos.</p>
+        </section>
+
+        <section class="project-detail-section slide-up-blur">
+            <h2 class="project-section-title">Mecánicas y arte</h2>
+            <p class="project-section-text">El combate tiene retroalimentación visual en ambos sentidos: animaciones de ataque del jugador, del enemigo, y estados de daño para cada uno. Los <b>shaders GLSL</b> propios resuelven el destello de impacto cuando un personaje recibe un golpe.</p>
+            <p class="project-section-text">La <b>dificultad</b> se refleja en el costo del error: en los niveles más altos, una respuesta incorrecta cuesta más vidas. Es la forma de que la progresión importe sin cambiar las reglas del juego.</p>
+        </section>
+
+        <div class="project-detail-gallery">
+            <img class="project-detail-img slide-up-blur" src="../img/QUIZ/04-ataque.png" alt="Animación de ataque del jugador tras una respuesta correcta">
+            <img class="project-detail-img slide-up-blur" src="../img/QUIZ/05-enemigo-atacando.png" alt="El enemigo contraataca cuando la respuesta es incorrecta">
+            <img class="project-detail-img slide-up-blur" src="../img/QUIZ/06-enemigo-herido.png" alt="Estado de daño del enemigo resuelto con shaders GLSL propios">
+            <img class="project-detail-img slide-up-blur" src="../img/QUIZ/07-vidas.png" alt="Sistema de vidas representado con corazones">
+            <img class="project-detail-img slide-up-blur" src="../img/QUIZ/08-dificultad.png" alt="Pérdida de vidas según el nivel de dificultad seleccionado">
+        </div>
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                // Animate once to avoid jumpy reverse-scroll behavior.
+                obs.unobserve(entry.target);
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.slide-up-blur:not(.project-detail-img)').forEach(el => observer.observe(el));
+
+        const galleryImages = Array.from(document.querySelectorAll('.project-detail-img.slide-up-blur'));
+        galleryImages.forEach((img, index) => {
+            img.dataset.seq = String(index);
+        });
+
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const img = entry.target;
+                const seq = Number(img.dataset.seq || '0');
+                img.style.transitionDelay = entry.isIntersecting ? `${Math.min(seq * 0.07, 0.35)}s` : '0s';
+                img.classList.toggle('visible', entry.isIntersecting);
+            });
+        }, {
+            threshold: 0.28,
+            rootMargin: '0px 0px -10% 0px'
+        });
+
+        galleryImages.forEach(img => imageObserver.observe(img));
+
+        // Cyber particle network background
+        (function() {
+            const canvas = document.getElementById('cyber-bg');
+            const ctx = canvas.getContext('2d');
+            let w, h, particles, mouse;
+
+            function init() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+                mouse = { x: -1000, y: -1000 };
+                const count = Math.min(Math.floor((w * h) / 15000), 120);
+                particles = [];
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: Math.random() * w,
+                        y: Math.random() * h,
+                        vx: (Math.random() - 0.5) * 0.3,
+                        vy: (Math.random() - 0.5) * 0.3,
+                        r: Math.random() * 1.5 + 0.5
+                    });
+                }
+            }
+
+            function resize() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < 0) p.x = w;
+                    if (p.x > w) p.x = 0;
+                    if (p.y < 0) p.y = h;
+                    if (p.y > h) p.y = 0;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(45, 212, 191, 0.5)';
+                    ctx.fill();
+
+                    const dxM = p.x - mouse.x;
+                    const dyM = p.y - mouse.y;
+                    const distM = Math.sqrt(dxM * dxM + dyM * dyM);
+                    if (distM < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = 'rgba(45, 212, 191, ' + (1 - distM / 150) * 0.4 + ')';
+                        ctx.lineWidth = 0.6;
+                        ctx.stroke();
+                    }
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const p2 = particles[j];
+                        const dx = p.x - p2.x;
+                        const dy = p.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 130) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = 'rgba(45, 212, 191, ' + (1 - dist / 130) * 0.2 + ')';
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+
+            window.addEventListener('resize', resize);
+
+            init();
+            animate();
+        })();
+
+        const lenis = new Lenis({
+            duration: 1.35,
+            easing: t => 1 - Math.pow(1 - t, 4),
+            smoothWheel: true,
+            smoothTouch: false,
+            wheelMultiplier: 0.85
+        });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    </script>
+</body>
+</html>
